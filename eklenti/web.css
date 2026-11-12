@@ -1,0 +1,92 @@
+/* Görev Eklentisi (web) — formlar, açılış perdesi, durum çubuğu ve dar bölme (Outlook görev bölmesi) düzeni.
+   Ortak görünümlerin stilleri styles.css'tedir (Windows eklentisiyle ortak). */
+
+/* ---------- web'de masaüstüne özgü öğeler ---------- */
+body.web #btnHesaplarAc { display: none; }
+
+/* ---------- durum çubuğu ---------- */
+.web-cubuk { margin-left: auto; display: flex; gap: 10px; align-items: center; min-width: 0; }
+body > .web-cubuk { position: fixed; right: 10px; bottom: 6px; z-index: 40; background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 3px 10px; font-size: 11.5px; }
+.web-durum.hata { color: #b00020; }
+.web-hesap { color: #2b579a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 220px; }
+.web-baglanti { background: none; border: none; color: #2b579a; cursor: pointer; padding: 0; font: inherit; text-decoration: underline; white-space: nowrap; }
+
+/* ---------- açılış perdesi ---------- */
+.web-perde { position: fixed; inset: 0; z-index: 100; background: #f6f7f9; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.web-perde-kutu { max-width: 440px; text-align: center; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #222; }
+.web-perde-logo { width: 56px; height: 56px; object-fit: contain; }
+.web-perde-kutu h1 { font-size: 20px; margin: 12px 0 8px; font-weight: 600; }
+.web-perde-kutu p { margin: 0 0 10px; line-height: 1.5; font-size: 13.5px; }
+.web-kucuk { color: #666; font-size: 12px !important; margin-top: 14px !important; }
+.web-dugme { display: inline-block; background: #2b579a; color: #fff; border: 1px solid #2b579a; border-radius: 4px; padding: 8px 18px; font: inherit; font-size: 14px; cursor: pointer; text-decoration: none; margin-top: 6px; }
+.web-dugme:hover { background: #244a84; }
+
+/* ---------- diyaloglar ---------- */
+dialog.gf { border: 1px solid #c8c8c8; border-radius: 6px; padding: 0; width: min(520px, calc(100vw - 16px)); max-height: calc(100vh - 16px); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 13px; color: #222; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+dialog.gf[open] { display: flex; flex-direction: column; }
+dialog.gf.gf-genis { width: min(780px, calc(100vw - 16px)); }
+dialog.gf::backdrop { background: rgba(0,0,0,.35); }
+.gf-baslik { padding: 12px 16px 8px; border-bottom: 1px solid #e6e6e6; }
+.gf-b1 { font-size: 16px; font-weight: 600; }
+.gf-b2 { color: #666; margin-top: 2px; overflow-wrap: anywhere; }
+.gf-govde { padding: 12px 16px 4px; overflow-y: auto; flex: 1 1 auto; }
+.gf-govde p { margin: 0 0 8px; line-height: 1.5; }
+.gf-hata { color: #b00020; padding: 0 16px; white-space: pre-wrap; }
+.gf-hata:not(:empty) { padding-top: 6px; }
+.gf-dugmeler { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; }
+.gf button { font: inherit; padding: 5px 14px; border: 1px solid #ababab; border-radius: 3px; background: #fff; cursor: pointer; min-height: 28px; }
+.gf button:hover { background: #f2f2f2; }
+.gf button.birincil { background: #2b579a; border-color: #2b579a; color: #fff; min-width: 90px; }
+.gf button.birincil:hover { background: #244a84; }
+.gf button:disabled { opacity: .6; cursor: default; }
+.gf-satir { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 4px 10px; margin-bottom: 9px; align-items: start; }
+.gf-etiket { padding-top: 5px; color: #333; }
+.gf .zorunlu { color: #d13438; font-weight: 700; }
+.gf input[type=text], .gf input[type=date], .gf select, .gf textarea { font: inherit; border: 1px solid #ababad; border-radius: 2px; padding: 3px 6px; height: 26px; box-sizing: border-box; background: #fff; color: #222; max-width: 100%; }
+.gf input[type=text], .gf textarea { width: 100%; }
+.gf textarea { height: auto; resize: vertical; padding: 5px 6px; }
+.gf input.gf-kisa { width: 80px; }
+.gf .hatali, .gf .hatali:focus { border: 2px solid #d13438 !important; outline: none; }
+.gf-yan { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.gf-ic-etiket { margin-left: 8px; color: #333; }
+.gf-not { color: #777; font-size: 11.5px; margin-top: 3px; }
+.gf-araclar { display: flex; gap: 4px; margin-bottom: 4px; flex-wrap: wrap; }
+.gf button.gf-arac { padding: 2px 9px; min-height: 24px; }
+.gf-zengin { border: 1px solid #ababad; border-radius: 2px; min-height: 90px; max-height: 220px; overflow-y: auto; padding: 5px 8px; background: #fff; line-height: 1.45; }
+.gf-zengin:focus { outline: 2px solid #2b579a33; }
+.gf-zengin p { margin: 0 0 6px; } .gf-zengin ul, .gf-zengin ol { margin: 0 0 6px; padding-left: 22px; }
+.gf-adim, .gf-ek { display: flex; align-items: center; gap: 6px; padding: 2px 0; }
+.gf-adim-m, .gf-ek span { flex: 1; overflow-wrap: anywhere; }
+.gf-adim button, .gf-ek button, .ak-kisi button { border: none; background: none; color: #888; padding: 0 5px; min-height: 0; font-size: 15px; line-height: 1; cursor: pointer; }
+.gf-adim button:hover, .gf-ek button:hover, .ak-kisi button:hover { color: #d13438; background: none; }
+.gf-adimlar:not(:empty), .gf-ekler:not(:empty) { margin-bottom: 5px; }
+.ak-sarmal { position: relative; }
+.ak { display: flex; flex-wrap: wrap; gap: 3px; border: 1px solid #ababad; border-radius: 2px; padding: 2px 4px; min-height: 26px; box-sizing: border-box; background: #fff; cursor: text; }
+.ak input.ak-giris { border: none !important; outline: none; flex: 1 1 140px; min-width: 100px; height: 20px; padding: 0 2px; }
+.ak-kisi { background: #e8eef7; border-radius: 10px; padding: 1px 2px 1px 8px; display: inline-flex; align-items: center; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ak-oneri { position: absolute; left: 0; right: 0; top: 100%; z-index: 5; background: #fff; border: 1px solid #c8c8c8; box-shadow: 0 4px 12px rgba(0,0,0,.15); max-height: 200px; overflow-y: auto; }
+.ak-o { padding: 5px 8px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ak-o:hover { background: #eef3fa; } .ak-o span { color: #666; }
+.gizli { display: none !important; }
+
+/* ---------- dar ekran: Outlook görev bölmesi ve telefon ---------- */
+@media (max-width: 700px) {
+  .gf-satir { grid-template-columns: 1fr; gap: 2px; }
+  .gf-etiket { padding-top: 0; font-weight: 600; }
+  .gf-ic-etiket { margin-left: 0; }
+  .ust { gap: 6px; padding: 6px 8px; }
+  .sekmeler { flex-wrap: wrap; flex: 1 1 100%; }
+  .eylemler { order: 2; flex: 1 1 100%; }
+  .eylemler .birincil { margin-left: auto; }
+  .filtreler { order: 3; display: grid; grid-template-columns: 1fr 1fr; flex: 1 1 100%; }
+  .filtreler select, .filtreler input[type=search] { max-width: none; width: 100%; min-width: 0; }
+  table.liste { font-size: 12px; }
+  /* Dar listede yalnızca Başlık, Durum, Termin (2., 5., 9. sütun) */
+  table.liste th:not(:nth-child(2)):not(:nth-child(5)):not(:nth-child(9)), table.liste td:not(:nth-child(2)):not(:nth-child(5)):not(:nth-child(9)) { display: none; }
+  aside#detay { position: fixed; inset: 0; width: auto; z-index: 30; border-left: none; }
+  .yardim { grid-template-columns: 1fr; }
+  .yardim-nav { position: static; flex-direction: row; flex-wrap: wrap; }
+  .alt-imza { flex-wrap: wrap; padding: 6px 8px; }
+  .web-hesap { max-width: 150px; }
+}
+.gf-yan label { white-space: nowrap; }

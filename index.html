@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Görev Eklentisi — İndir</title>
+<meta name="description" content="Outlook için görev atama ve takip eklentisi. Windows, Mac, Outlook web ve tarayıcı sürümleri.">
+<link rel="icon" href="eklenti/simgeler/simge-32.png">
+<link rel="stylesheet" href="indir.css?v=0.1.38">
+</head>
+<body>
+<header class="ust">
+  <img src="eklenti/simgeler/simge-64.png" alt="" width="40" height="40">
+  <div>
+    <h1>Görev Eklentisi</h1>
+    <p>Outlook'ta e-posta gönderir gibi görev verin; kabul, iş kaydı ve tamamlama adımlarını liste, kanban ve Gantt ile izleyin.</p>
+  </div>
+</header>
+
+<main>
+  <p class="surum">Güncel sürüm <b>0.1.38</b> · 13.11.2026 01:11 (Türkiye saati)</p>
+  <p class="oneri" id="oneri" hidden></p>
+
+  <h2>Hangi Outlook'u kullanıyorsunuz?</h2>
+  <div class="kartlar">
+
+    <section class="kart" id="k-windows" data-platform="windows">
+      <div class="kart-bas">
+        <svg class="simge" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="25" rx="3"/><path d="M18 40h12M24 33v7"/><path d="M12 15h24M12 21h15" class="ince"/></svg>
+        <div><h3>Windows</h3><p class="alt">Klasik Outlook 2016 · 2019 · 2021 · Microsoft 365</p></div>
+      </div>
+      <a class="dugme" href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi-Kurulum.exe">Kurulum dosyasını indir <span>GorevEklentisi-Kurulum.exe</span></a>
+      <ol>
+        <li>İndirilen dosya çift tıklanır.</li>
+        <li>"Windows bilgisayarınızı korudu" uyarısında <b>Ek bilgi → Yine de çalıştır</b>, yönetici onayında <b>Evet</b>.</li>
+        <li>Kurulum bitince <b>Kapat</b>; Outlook açılır, <b>Giriş</b> sekmesinde <b>Görev</b> grubu görünür.</li>
+      </ol>
+      <p class="not">Her tür hesapla çalışır (Exchange, Microsoft 365, IMAP, POP). Kurulum Outlook'u kapatır; kaydedilmemiş taslaklar önce kaydedilir.</p>
+    </section>
+
+    <section class="kart" id="k-mac" data-platform="mac">
+      <div class="kart-bas">
+        <svg class="simge" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="10" width="30" height="20" rx="2.5"/><path d="M4 36h40l-3 3H7z"/></svg>
+        <div><h3>Mac · yeni Outlook · Outlook web</h3><p class="alt">macOS için Outlook, Windows'ta yeni Outlook, outlook.office.com, outlook.com</p></div>
+      </div>
+      <a class="dugme" href="eklenti/manifest.xml" download="GorevEklentisi-manifest.xml">Eklenti dosyasını indir <span>GorevEklentisi-manifest.xml</span></a>
+      <ol>
+        <li>Dosya indirilir (açılmaz; yalnızca Outlook'a yüklenir).</li>
+        <li>Outlook'un <b>Eklentiler</b> penceresi açılır: <a href="https://outlook.office.com/mail/inclientstore" target="_blank" rel="noopener">iş / okul hesabı</a> ya da <a href="https://outlook.live.com/mail/0/inclientstore" target="_blank" rel="noopener">kişisel hesap (Outlook.com)</a>. Bağlantı pencereyi açmazsa Outlook'ta bir ileti açılıp <b>Uygulamalar → Eklenti al</b> seçilir.</li>
+        <li><b>Eklentilerim → Özel eklentiler → Özel eklenti ekle → Dosyadan ekle</b> ile indirilen dosya seçilir, <b>Yükle</b> denir.</li>
+        <li>Bir ileti açılır; iletideki <b>Uygulamalar</b> düğmesinden <b>Görev Eklentisi</b> seçilir.</li>
+      </ol>
+      <p class="not">Microsoft 365 ya da Outlook.com posta kutusu gerekir. Bir kez eklenince aynı hesapla web, Mac ve yeni Outlook'ta görünür.</p>
+    </section>
+
+    <section class="kart" id="k-tarayici" data-platform="linux">
+      <div class="kart-bas">
+        <svg class="simge" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c-7 5-7 31 0 36M24 6c7 5 7 31 0 36" class="ince"/></svg>
+        <div><h3>Tarayıcı</h3><p class="alt">Linux, ChromeOS ve Outlook kurulu olmayan bilgisayarlar</p></div>
+      </div>
+      <a class="dugme" href="eklenti/">Tarayıcıda aç <span>kurulum gerekmez</span></a>
+      <ol>
+        <li>Sayfa açılır, <b>Microsoft hesabıyla oturum aç</b> denir.</li>
+        <li>İlk girişte istenen izinler onaylanır.</li>
+        <li>İstenirse sayfa yer imlerine ya da tarayıcının "uygulama olarak yükle" seçeneğiyle masaüstüne eklenir.</li>
+      </ol>
+      <p class="not">Microsoft 365 ya da Outlook.com posta kutusu gerekir. Outlook'a eklenti kuranlar için de geniş ekran görünümüdür (kanban, Gantt).</p>
+    </section>
+  </div>
+
+  <h2>Hangisi bana uygun?</h2>
+  <div class="tablo-sar">
+  <table>
+    <thead><tr><th>Outlook'unuz</th><th>Nasıl anlaşılır</th><th>İndirilecek</th></tr></thead>
+    <tbody>
+      <tr><td>Windows — klasik Outlook</td><td>Üst menüde <b>Dosya</b> sekmesi vardır</td><td><a href="#k-windows">Kurulum dosyası (.exe)</a></td></tr>
+      <tr><td>Windows — yeni Outlook</td><td><b>Dosya</b> sekmesi yoktur; sağ üstte "Yeni Outlook" anahtarı açıktır</td><td><a href="#k-mac">Eklenti dosyası (manifest)</a></td></tr>
+      <tr><td>Mac için Outlook</td><td>macOS'ta Outlook uygulaması</td><td><a href="#k-mac">Eklenti dosyası (manifest)</a></td></tr>
+      <tr><td>Outlook web</td><td>Tarayıcıda outlook.office.com ya da outlook.com</td><td><a href="#k-mac">Eklenti dosyası (manifest)</a></td></tr>
+      <tr><td>Outlook yok / Linux</td><td>Posta tarayıcıdan ya da başka bir programdan okunur</td><td><a href="#k-tarayici">Tarayıcı sürümü</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="not">IMAP, POP ve Gmail hesapları yalnızca Windows kurulum paketiyle kullanılabilir. Farklı sürümleri kullananlar birbirine görev verebilir.</p>
+
+  <h2>Belgeler</h2>
+  <ul class="baglantilar">
+    <li><a href="kilavuz.html">Kullanım kılavuzu</a></li>
+    <li><a href="web-kurulum.html">Mac, web ve yeni Outlook: ayrıntılı kurulum ve kurum geneli dağıtım</a></li>
+    <li><a href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi.msi">Kurum içi sessiz kurulum için MSI</a></li>
+    <li><a href="eklenti/destek.html">Destek</a> · <a href="eklenti/gizlilik.html">Gizlilik politikası</a></li>
+  </ul>
+</main>
+
+<footer>Görev Eklentisi 0.1.38 · NCU</footer>
+<script src="indir.js?v=0.1.38"></script>
+</body>
+</html>

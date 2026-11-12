@@ -1,0 +1,60 @@
+:root { --vurgu: #2b579a; --vurgu-koyu: #1f4279; --metin: #1f2328; --metin2: #5b6470; --cizgi: #dfe3e8; --zemin: #f5f7fa; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--metin); background: var(--zemin); line-height: 1.5; }
+.ust { background: #fff; border-bottom: 1px solid var(--cizgi); padding: 22px max(16px, calc((100vw - 1120px) / 2)); display: flex; gap: 14px; align-items: center; }
+.ust h1 { margin: 0; font-size: 24px; font-weight: 650; }
+.ust p { margin: 2px 0 0; color: var(--metin2); max-width: 720px; }
+main { max-width: 1152px; margin: 0 auto; padding: 18px 16px 40px; }
+h2 { font-size: 18px; margin: 28px 0 12px; }
+.surum { color: var(--metin2); margin: 0; font-size: 14px; }
+.oneri { background: #eaf1fb; border: 1px solid #c5d6f0; border-radius: 6px; padding: 9px 12px; margin: 12px 0 0; font-size: 14.5px; }
+.kartlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.kart { background: #fff; border: 1px solid var(--cizgi); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; }
+.kart.onerilen { border-color: var(--vurgu); box-shadow: 0 0 0 2px #2b579a33; }
+.kart.onerilen .kart-bas h3::after { content: "Bu bilgisayar için"; font-size: 11px; font-weight: 600; color: var(--vurgu); background: #eaf1fb; border-radius: 10px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; white-space: nowrap; }
+.kart-bas { display: flex; gap: 12px; align-items: center; min-height: 64px; }
+.kart-bas h3 { margin: 0; font-size: 17px; }
+.alt { margin: 2px 0 0; color: var(--metin2); font-size: 13px; }
+.simge { width: 44px; height: 44px; flex: none; fill: none; stroke: var(--vurgu); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.simge .ince { stroke-width: 1.8; }
+.dugme { display: block; background: var(--vurgu); color: #fff; text-decoration: none; text-align: center; font-weight: 600; border-radius: 6px; padding: 10px 12px; margin: 14px 0 6px; }
+.dugme:hover, .dugme:focus-visible { background: var(--vurgu-koyu); }
+.dugme span { display: block; font-weight: 400; font-size: 12px; opacity: .85; overflow-wrap: anywhere; }
+.kart ol { margin: 10px 0 0; padding-left: 20px; font-size: 14px; }
+.kart li { margin-bottom: 5px; }
+.not { color: var(--metin2); font-size: 13px; margin: 10px 0 0; }
+.kart .not { margin-top: auto; padding-top: 10px; }
+a { color: var(--vurgu); }
+.tablo-sar { overflow-x: auto; background: #fff; border: 1px solid var(--cizgi); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--cizgi); vertical-align: top; }
+th { color: var(--metin2); font-weight: 600; font-size: 13px; }
+tr:last-child td { border-bottom: none; }
+.baglantilar { margin: 0; padding-left: 20px; font-size: 14.5px; }
+.baglantilar li { margin-bottom: 4px; }
+footer { text-align: center; color: var(--metin2); font-size: 12.5px; padding: 0 16px 28px; }
+@media (max-width: 900px) { .kartlar { grid-template-columns: 1fr; } .kart-bas { min-height: 0; } }
+
+/* ---------- belge sayfaları (kılavuzlar) ---------- */
+.gezinti { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14.5px; }
+.gezinti a { color: var(--metin2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+.gezinti a:hover { color: var(--vurgu); }
+.gezinti a[aria-current="page"] { color: var(--vurgu); border-bottom-color: var(--vurgu); font-weight: 600; }
+.belge-duzen { max-width: 1152px; margin: 0 auto; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; padding: 0 16px; align-items: start; }
+.belge main { max-width: none; margin: 0; padding: 18px 0 40px; font-size: 15px; line-height: 1.6; }
+.belge main h1 { font-size: 26px; margin: 4px 0 10px; }
+.belge main h2 { font-size: 20px; margin: 34px 0 10px; padding-top: 10px; border-top: 1px solid var(--cizgi); }
+.belge main h3 { font-size: 16.5px; margin: 22px 0 6px; }
+.belge main h4 { font-size: 15px; margin: 16px 0 4px; }
+.belge main li { margin-bottom: 4px; }
+.belge main .tablo-sar { margin: 12px 0; }
+.belge main code { background: #eef1f5; border-radius: 3px; padding: 1px 5px; font-size: 13px; font-family: Consolas, "SF Mono", Menlo, monospace; overflow-wrap: anywhere; }
+.belge main pre { background: #eef1f5; border-radius: 6px; padding: 10px 12px; overflow-x: auto; }
+.belge main pre code { background: none; padding: 0; }
+.belge main blockquote { margin: 12px 0; padding: 4px 14px; border-left: 3px solid #c5d6f0; background: #fff; color: #333; }
+.belge main a { overflow-wrap: anywhere; }
+.icindekiler { position: sticky; top: 12px; margin-top: 22px; display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; max-height: calc(100vh - 24px); overflow-y: auto; }
+.icindekiler b { color: var(--metin2); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+.icindekiler a { color: var(--metin); text-decoration: none; }
+.icindekiler a:hover { color: var(--vurgu); text-decoration: underline; }
+@media (max-width: 900px) { .belge-duzen { grid-template-columns: minmax(0, 1fr); gap: 0; } .icindekiler { position: static; max-height: none; background: #fff; border: 1px solid var(--cizgi); border-radius: 8px; padding: 10px 12px; margin-top: 14px; } }
