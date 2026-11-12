@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Görev Eklentisi — Web sürümü (Mac, Outlook web, yeni Outlook, tarayıcı)</title>
+<link rel="icon" href="eklenti/simgeler/simge-32.png">
+<link rel="stylesheet" href="indir.css?v=0.1.40">
+</head>
+<body class="belge">
+<header class="ust">
+  <a href="./"><img src="eklenti/simgeler/simge-64.png" alt="Görev Eklentisi" width="40" height="40"></a>
+  <nav class="gezinti">
+    <a href="./">İndir</a>
+    <a href="kilavuz.html">Kullanım kılavuzu</a>
+    <a href="web-kurulum.html" aria-current="page">Mac, web ve yeni Outlook kurulumu</a>
+    <a href="eklenti/destek.html">Destek</a>
+  </nav>
+</header>
+<div class="belge-duzen">
+  <aside class="icindekiler"><b>Bu sayfada</b>
+    <a href="#1-bir-kerelik-kurulum-yayıncı">1. Bir kerelik kurulum (yayıncı)</a>
+    <a href="#2-eklentiyi-outlook-a-ekleme">2. Eklentiyi Outlook'a ekleme</a>
+    <a href="#3-nasıl-çalışır">3. Nasıl çalışır</a>
+    <a href="#4-windows-eklentisinden-farklar">4. Windows eklentisinden farklar</a>
+    <a href="#5-geliştirme">5. Geliştirme</a>
+  </aside>
+  <main>
+<h1>Görev Eklentisi — Web sürümü (Mac, Outlook web, yeni Outlook, tarayıcı)</h1>
+<p>Windows'taki klasik Outlook için kurulum paketi (VSTO eklentisi) kullanılır. Diğer platformlar için aynı görev sistemi bir <b>Office web eklentisi</b> ve <b>tarayıcı uygulaması</b> olarak çalışır. İki sürüm aynı görev maillerini okuyup yazar; kullanıcılar hangi sürümü kullanırsa kullansın birbirine görev verebilir.</p>
+<div class="tablo-sar"><table><thead><tr><th>Platform</th><th>Kullanılan sürüm</th></tr></thead><tbody><tr><td>Windows — klasik Outlook 2016 / 2019 / 2021 / Microsoft 365</td><td>Kurulum paketi (<code>GorevEklentisi-Kurulum.exe</code>)</td></tr><tr><td>Windows — yeni Outlook</td><td>Web eklentisi</td></tr><tr><td>macOS — Outlook</td><td>Web eklentisi</td></tr><tr><td>Outlook web (outlook.office.com, outlook.com) — her işletim sistemi</td><td>Web eklentisi</td></tr><tr><td>Linux ve diğerleri (Outlook kurulu olmadan)</td><td>Tarayıcı uygulaması</td></tr></tbody></table></div>
+<p><b>Koşul:</b> posta kutusu Microsoft 365 (Exchange Online) ya da Outlook.com olmalıdır. IMAP / POP / Gmail hesapları web sürümünde desteklenmez (Outlook bu hesaplarda web eklentisi yüklemez; tarayıcı uygulaması da posta kutusuna Microsoft Graph ile erişir). Bu hesaplar yalnızca Windows'taki kurulum paketiyle kullanılabilir.</p>
+<p>Adresler (yayın adresi <code>web-eklenti/yayin.json</code> → <code>taban</code>):</p>
+<ul><li>İndirme sayfası: <a href="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/" target="_blank" rel="noopener">https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/</a></li><li>Tarayıcı uygulaması: <a href="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/" target="_blank" rel="noopener">https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/</a></li><li>Eklenti dosyası (manifest): <a href="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/manifest.xml" target="_blank" rel="noopener">https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/manifest.xml</a></li></ul>
+<h2 id="1-bir-kerelik-kurulum-yayıncı">1. Bir kerelik kurulum (yayıncı)</h2>
+<h3 id="1-1-github-pages">1.1 GitHub Pages</h3>
+<p>Dağıtım deposunda <b>Settings → Pages → Build and deployment → Source: Deploy from a branch</b>, dal <b>main</b>, klasör <b>/ (root)</b> seçilip kaydedilir. Birkaç dakika sonra yukarıdaki adresler açılır. Sonraki derlemeler siteyi kendiliğinden günceller.</p>
+<h3 id="1-2-uygulama-kaydı-microsoft-entra">1.2 Uygulama kaydı (Microsoft Entra)</h3>
+<p>Eklenti posta kutusuna kullanıcının kendi oturumuyla (Microsoft Graph) erişir; bunun için bir uygulama kaydı gerekir. Kayıt ücretsizdir, sunucu ya da gizli anahtar içermez.</p>
+<ol><li><a href="https://entra.microsoft.com" target="_blank" rel="noopener">https://entra.microsoft.com</a> → <b>Applications → App registrations → New registration</b>.</li><li><b>Name:</b> Görev Eklentisi. <b>Supported account types:</b> <i>Accounts in any organizational directory and personal Microsoft accounts</i>.</li><li><b>Redirect URI:</b> platform <b>Single-page application (SPA)</b>, adres <code>https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/index.html</code> → <b>Register</b>.</li><li><b>Authentication → Single-page application → Add URI:</b> <code>brk-multihub://caglarutkuguler.github.io</code> (Outlook içindeki oturum için) → <b>Save</b>.</li><li><b>API permissions → Add a permission → Microsoft Graph → Delegated permissions:</b> <code>User.Read</code>, <code>Mail.ReadWrite</code>, <code>Mail.Send</code>, <code>People.Read</code> → <b>Add permissions</b>.</li><li><b>Overview</b> sayfasındaki <b>Application (client) ID</b> değeri <code>web-eklenti/yayin.json</code> dosyasındaki <code>istemciKimligi</code> alanına yazılır ve derleme yeniden çalıştırılır. Bu değer gizli değildir.</li></ol>
+<p>Kimlik tanımlanana kadar uygulama &quot;Kurulum tamamlanmadı&quot; iletisini gösterir.</p>
+<p>Kullanıcı onayına izin vermeyen kurumlarda bir yöneticinin izinleri kurum adına onaylaması gerekir (Entra → Enterprise applications → Görev Eklentisi → Permissions → Grant admin consent).</p>
+<h2 id="2-eklentiyi-outlook-a-ekleme">2. Eklentiyi Outlook'a ekleme</h2>
+<p><b>Kullanıcı kendisi ekler (Outlook web, yeni Outlook, Mac):</b></p>
+<ol><li>Eklenti dosyası (<code>manifest.xml</code>) indirme sayfasından indirilir: <a href="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/" target="_blank" rel="noopener">https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/</a></li><li>Outlook'un &quot;Eklentiler&quot; penceresi açılır. Tarayıcıda, eklentinin ekleneceği hesapla oturum açıkken:<ul><li>iş / okul hesabı: <a href="https://outlook.office.com/mail/inclientstore" target="_blank" rel="noopener">https://outlook.office.com/mail/inclientstore</a></li><li>kişisel hesap (Outlook.com, Hotmail): <a href="https://outlook.live.com/mail/0/inclientstore" target="_blank" rel="noopener">https://outlook.live.com/mail/0/inclientstore</a></li><li>bağlantı pencereyi açmazsa: Outlook'ta bir ileti açılır, iletinin üstündeki <b>Uygulamalar</b> düğmesinden <b>Eklenti al</b> seçilir.</li></ul></li></ol>
+<p>Pencere yalnızca Outlook posta kutusu olan hesaplarda açılır. Posta kutusu (Exchange Online lisansı) olmayan bir Microsoft hesabıyla oturum açıksa bağlantılar boş sayfa ya da hata gösterir.</p>
+<ol><li><b>Eklentilerim → Özel eklentiler → Özel eklenti ekle → Dosyadan ekle</b> ile indirilen <code>manifest.xml</code> seçilir, <b>Yükle</b> denir.</li></ol>
+<p><b>Kurum genelinde (Microsoft 365 yöneticisi):</b> Microsoft 365 yönetim merkezi → <b>Ayarlar → Tümleşik uygulamalar → Özel uygulamaları karşıya yükle → Office Eklentisi</b> → bildirim dosyası bağlantısı olarak <code>manifest.xml</code> adresi verilir, kullanıcılar/gruplar seçilir. Eklenti seçilen herkesin Outlook'unda (web, Mac, yeni ve klasik) kendiliğinden görünür.</p>
+<p>Eklenti bir ileti açıkken <b>Görev</b> grubundaki (ya da iletideki <b>Uygulamalar</b> menüsündeki) <b>Görevler</b> ve <b>Yeni Görev</b> düğmeleriyle açılır. İlk kullanımda Microsoft'un izin onayı penceresi bir kez çıkar.</p>
+<p><b>Outlook olmadan (Linux vb.):</b> tarayıcı uygulamasının adresi açılır, <b>Microsoft hesabıyla oturum aç</b> denir.</p>
+<h2 id="3-nasıl-çalışır">3. Nasıl çalışır</h2>
+<ul><li>Sunucu bileşeni yoktur. Görevler posta kutusundaki görev maillerinden okunur (Gelen Kutusu, Görevler klasörü, Gönderilmiş Öğeler) ve tarayıcıda yerel olarak saklanır; işlemler görev maili olarak gönderilir.</li><li>Pencere açıkken iki dakikada bir ve <b>⟳</b> düğmesiyle eşitlenir. Web eklentileri arka planda çalışamadığından yeni görev bildirimi çıkmaz; görev maili Gelen Kutusu'na normal e-posta olarak düşer.</li><li>Bağlantı yokken yapılan işlemler bekletilir, bağlantı gelince gönderilir.</li><li>Aynı posta kutusu hem Windows eklentisiyle hem web sürümüyle kullanılabilir: biri diğerinin yaptığı işlemleri Gönderilmiş Öğeler'den okur.</li><li>Görev maillerindeki <b>Kabul Et / İş Kaydı…</b> düğmeleri yalnızca Windows eklentisinde çalışır; web sürümünde bölmedeki düğmeler kullanılır.</li></ul>
+<h2 id="4-windows-eklentisinden-farklar">4. Windows eklentisinden farklar</h2>
+<div class="tablo-sar"><table><thead><tr><th>Konu</th><th>Web sürümü</th></tr></thead><tbody><tr><td>Posta kutusu</td><td>Yalnızca Microsoft 365 / Outlook.com</td></tr><tr><td>Birden çok hesap</td><td>Oturum açılan (ya da eklentinin açıldığı) posta kutusu; her posta kutusunun görevleri ayrıdır</td></tr><tr><td>Bildirim, hatırlatma</td><td>Yok (arka planda çalışamaz)</td></tr><tr><td>Outlook Görevler listesine yansıtma</td><td>Yok</td></tr><tr><td>Yanıtla düğmesini yakalama</td><td>Yok</td></tr><tr><td>Maildeki düğmeler</td><td>Çalışmaz; bölmedeki düğmeler kullanılır</td></tr><tr><td>Çevrimdışı kullanım</td><td>Açık pencerede işlemler bekletilir; uygulamanın açılması için bağlantı gerekir</td></tr><tr><td>Güncelleme</td><td>Kendiliğinden (site güncellenir; kurulum gerekmez)</td></tr></tbody></table></div>
+<h2 id="5-geliştirme">5. Geliştirme</h2>
+<ul><li>Kaynak: <code>web-eklenti/kaynak/</code> (çekirdek, depo, servis, Graph, formlar, köprü). Liste / kanban / Gantt / yük arayüzü Windows eklentisiyle ortaktır: <code>src/GorevEklentisi.Addin/web/</code>.</li><li><code>cekirdek.js</code>, <code>GorevEklentisi.Core</code>'un (C#) karşılığıdır; olay modeli, kurallar ya da mail biçimi değişince iki taraf birlikte güncellenir.</li><li>Derleme: <code>node web-eklenti/derle.mjs --taban &lt;https adresi&gt; --surum a.b.c --istemci &lt;uygulama kimliği&gt;</code> → <code>web-eklenti/dist/</code>.</li><li>Testler: <code>node --test web-eklenti/test/akis.test.mjs</code> (çekirdek + servis, sahte posta); <code>node web-eklenti/test/arayuz.mjs</code> (Playwright ile arayüz akışı).</li></ul>
+  </main>
+</div>
+<footer>Görev Eklentisi 0.1.40 · NCU</footer>
+</body>
+</html>
