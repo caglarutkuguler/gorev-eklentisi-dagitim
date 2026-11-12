@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Görev Eklentisi — Office web eklentisi bildirimi (Outlook: web, yeni Outlook, Mac, klasik Windows).
+     https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/ derleme sırasında eklenti dosyalarının yayınlandığı https adresiyle değiştirilir (derle.mjs).
+     Windows'taki klasik Outlook'ta VSTO eklentisi (kurulum paketi) kuruluysa bu eklentiye gerek yoktur. -->
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+  <Id>6f3c1c0e-2b7d-4e58-9a41-5d0c8e7b3a12</Id>
+  <Version>1.1.39.0</Version>
+  <ProviderName>NCU</ProviderName>
+  <DefaultLocale>tr-TR</DefaultLocale>
+  <DisplayName DefaultValue="Görev Eklentisi"/>
+  <Description DefaultValue="E-posta gönderir gibi görev verilir; Kabul, İş Kaydı, Tamamla ile yanıtlanır; liste, kanban ve Gantt ile izlenir. Görevler posta kutusunda tutulur."/>
+  <IconUrl DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-128.png"/>
+  <SupportUrl DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/destek.html"/>
+  <AppDomains>
+    <AppDomain>https://login.microsoftonline.com</AppDomain>
+    <AppDomain>https://login.live.com</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.5"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/bolme.html"/>
+        <RequestedHeight>450</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <!-- Okuma: seçili mailin görevi (işlem düğmeleriyle) ve görev listesi. Bölme sabitlenebilir. -->
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="grpGorevOkuma">
+                  <Label resid="grupAdi"/>
+                  <Control xsi:type="Button" id="btnGorevler">
+                    <Label resid="gorevlerAd"/>
+                    <Supertip>
+                      <Title resid="gorevlerAd"/>
+                      <Description resid="gorevlerAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="bolmeAdres"/>
+                    </Action>
+                  </Control>
+                  <Control xsi:type="Button" id="btnYeniGorevOkuma">
+                    <Label resid="yeniAd"/>
+                    <Supertip>
+                      <Title resid="yeniAd"/>
+                      <Description resid="yeniAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="yeniAdres"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <!-- Yazma: yeni ileti penceresinden görev formu (görev kendi mailiyle gider; açık taslak kullanılmaz). -->
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="grpGorevYazma">
+                  <Label resid="grupAdi"/>
+                  <Control xsi:type="Button" id="btnYeniGorevYazma">
+                    <Label resid="yeniAd"/>
+                    <Supertip>
+                      <Title resid="yeniAd"/>
+                      <Description resid="yeniAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="yeniAdres"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="simge16" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-16.png"/>
+          <bt:Image id="simge32" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-32.png"/>
+          <bt:Image id="simge80" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="bolmeAdres" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/bolme.html"/>
+          <bt:Url id="yeniAdres" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/bolme.html?yeni=1"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="grupAdi" DefaultValue="Görev"/>
+          <bt:String id="gorevlerAd" DefaultValue="Görevler"/>
+          <bt:String id="yeniAd" DefaultValue="Yeni Görev"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="gorevlerAciklama" DefaultValue="Seçili görev mailinin işlemleri (Kabul, İş Kaydı, Tamamla…) ve görev listesi."/>
+          <bt:String id="yeniAciklama" DefaultValue="Bir veya birden çok sorumluya e-posta ile görev gönderir."/>
+        </bt:LongStrings>
+      </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <!-- Okuma: seçili mailin görevi (işlem düğmeleriyle) ve görev listesi. Bölme sabitlenebilir. -->
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="grpGorevOkuma">
+                  <Label resid="grupAdi"/>
+                  <Control xsi:type="Button" id="btnGorevler">
+                    <Label resid="gorevlerAd"/>
+                    <Supertip>
+                      <Title resid="gorevlerAd"/>
+                      <Description resid="gorevlerAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="bolmeAdres"/>
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                  <Control xsi:type="Button" id="btnYeniGorevOkuma">
+                    <Label resid="yeniAd"/>
+                    <Supertip>
+                      <Title resid="yeniAd"/>
+                      <Description resid="yeniAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="yeniAdres"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <!-- Yazma: yeni ileti penceresinden görev formu (görev kendi mailiyle gider; açık taslak kullanılmaz). -->
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="grpGorevYazma">
+                  <Label resid="grupAdi"/>
+                  <Control xsi:type="Button" id="btnYeniGorevYazma">
+                    <Label resid="yeniAd"/>
+                    <Supertip>
+                      <Title resid="yeniAd"/>
+                      <Description resid="yeniAciklama"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="simge16"/>
+                      <bt:Image size="32" resid="simge32"/>
+                      <bt:Image size="80" resid="simge80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="yeniAdres"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="simge16" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-16.png"/>
+          <bt:Image id="simge32" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-32.png"/>
+          <bt:Image id="simge80" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/simgeler/simge-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="bolmeAdres" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/bolme.html"/>
+          <bt:Url id="yeniAdres" DefaultValue="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/eklenti/bolme.html?yeni=1"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="grupAdi" DefaultValue="Görev"/>
+          <bt:String id="gorevlerAd" DefaultValue="Görevler"/>
+          <bt:String id="yeniAd" DefaultValue="Yeni Görev"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="gorevlerAciklama" DefaultValue="Seçili görev mailinin işlemleri (Kabul, İş Kaydı, Tamamla…) ve görev listesi."/>
+          <bt:String id="yeniAciklama" DefaultValue="Bir veya birden çok sorumluya e-posta ile görev gönderir."/>
+        </bt:LongStrings>
+      </Resources>
+      
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

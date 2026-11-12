@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://appsforoffice.microsoft.com https://*.cdn.office.net https://ajax.aspnetcdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src https:; frame-src https://login.microsoftonline.com https://login.live.com https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Görevler</title>
+<link rel="stylesheet" href="styles.css?v=0.1.39">
+<link rel="stylesheet" href="web.css?v=0.1.39">
+<link rel="icon" href="simgeler/simge-32.png">
+</head>
+<body>
+<header class="ust">
+  <div class="sekmeler" role="tablist">
+    <button class="sekme aktif" data-gorunum="liste">Liste</button>
+    <button class="sekme" data-gorunum="kanban">Kanban</button>
+    <button class="sekme" data-gorunum="gantt">Gantt</button>
+    <button class="sekme" data-gorunum="yuk">Yük</button>
+    <button class="sekme sekme-yardim" data-gorunum="yardim" title="Kullanım kılavuzu">? Yardım</button>
+  </div>
+  <div class="filtreler">
+    <select id="fHesap" title="Hesap (birden çok görev alanı açıkken)" class="gizli"><option value="">Tüm hesaplar</option></select>
+    <select id="fKapsam" title="Kapsam">
+      <option value="hepsi">Tüm görevler</option>
+      <option value="verdiklerim">Verdiklerim</option>
+      <option value="uzerimdekiler">Üzerimdekiler</option>
+      <option value="izlediklerim">İzlediklerim</option>
+    </select>
+    <select id="fDurum" title="Durum">
+      <option value="acik">Açık olanlar</option>
+      <option value="hepsi">Tüm durumlar</option>
+      <option value="Yeni">Yeni</option>
+      <option value="KabulEdildi">Kabul edildi</option>
+      <option value="DevamEdiyor">Devam ediyor</option>
+      <option value="Beklemede">Beklemede</option>
+      <option value="Tamamlandi">Tamamlandı</option>
+      <option value="Kapatildi">Kapatıldı</option>
+      <option value="Reddedildi">Reddedildi</option>
+      <option value="IptalEdildi">İptal edildi</option>
+    </select>
+    <select id="fProje" title="Proje"><option value="">Tüm projeler</option></select>
+    <select id="fKisi" title="Kişi"><option value="">Tüm kişiler</option></select>
+    <label class="onay"><input type="checkbox" id="fGecikmis"> Gecikmiş</label>
+    <input type="search" id="fAra" placeholder="Ara…">
+  </div>
+  <div class="eylemler">
+    <button id="btnYenile" title="Yenile">⟳</button>
+    <button id="btnAktar" title="CSV dışa aktar">CSV</button>
+    <button id="btnYeni" class="birincil">+ Yeni Görev</button>
+  </div>
+</header>
+
+<div class="govde">
+<main id="icerik">
+  <section id="liste" class="gorunum aktif"></section>
+  <section id="kanban" class="gorunum"></section>
+  <section id="gantt" class="gorunum">
+    <div class="gantt-arac">
+      <label>Ölçek
+        <select id="gOlcek"><option value="gun">Gün</option><option value="hafta" selected>Hafta</option><option value="ay">Ay</option></select>
+      </label>
+      <label>Grupla
+        <select id="gGrup"><option value="">—</option><option value="proje">Proje</option><option value="kisi">Sorumlu</option></select>
+      </label>
+    </div>
+    <div id="ganttAlan"></div>
+  </section>
+  <section id="yuk" class="gorunum"></section>
+
+  <section id="yardim" class="gorunum">
+    <div id="hosgeldin" class="hosgeldin gizli">
+      <img src="ncu-logo.png" alt="NCU" class="h-logo">
+      <div>
+        <div class="h-baslik">Görev Eklentisi kuruldu.</div>
+        <div>Outlook'un Giriş sekmesine <b>Görev</b> grubu eklendi: <b>Yeni Görev</b> ile görev gönderilir, <b>Görevler</b> ile takip edilir. Aşağıdaki kılavuz kısa bir özettir; bu sayfa yalnızca ilk açılışta kendiliğinden gelir, sonrasında <b>Görev → Yardım</b> düğmesiyle her zaman açılabilir.</div>
+      </div>
+      <button id="hosgeldinKapat" title="Kapat">✕</button>
+    </div>
+    <div class="yardim">
+      <nav class="yardim-nav">
+        <a href="#y-nedir">Eklenti nedir?</a>
+        <a href="#y-gonderme">Görev gönderme</a>
+        <a href="#y-gelen">Gelen görevde yapılacaklar</a>
+        <a href="#y-pencere">Görevler penceresi</a>
+        <a href="#y-takip">Görev veren için takip</a>
+        <a href="#y-durumlar">Durumlar</a>
+        <a href="#y-web">Web, Mac ve yeni Outlook</a>
+        <a href="#y-sss">Sık sorulan sorular</a>
+        <a href="#y-destek">Destek</a>
+        <a href="#y-hakkinda">Hakkında</a>
+      </nav>
+      <article class="yardim-icerik">
+
+        <h2 id="y-nedir">Eklenti nedir?</h2>
+        <p>Görev Eklentisi, Outlook içinden bir e-posta gönderir gibi görev vermeyi ve bu görevleri tek ekrandan izlemeyi sağlar. Görev gönderme, kabul etme, ilerleme bildirme ve tamamlama işlemleri Outlook'un içindeki düğmelerle yapılır; ayrı bir program açılmaz.</p>
+        <p>Görevler e-posta ile taşınır; internet bağlantısı gerekmez, kurum e-postası çalışıyorsa eklenti de çalışır. Görev alan kişide eklenti yoksa görev yine normal bir e-posta olarak okunur, yalnızca düğmeler görünmez.</p>
+        <p>Üç rol vardır: <b>görev veren</b> görevi açar, izler, kapatır; <b>sorumlu</b> görevi kabul eder, yaptıklarını kaydeder, tamamlar; <b>bilgi</b> olarak eklenenler görevi ve gelişmeleri görür ama işlem yapmaz.</p>
+        <p>Gelen görev e-postaları Gelen Kutusu'nun altındaki <b>Görevler</b> klasörüne taşınır. Bu klasör silinmemelidir; eklenti görev geçmişini buradaki e-postalardan okur. Sorumlu olunan görevler Outlook'un kendi Görevler listesinde ve Yapılacaklar çubuğunda da görünür; oradaki satırlar yalnızca gösterim içindir.</p>
+
+        <h2 id="y-gonderme">Görev gönderme</h2>
+        <p>Outlook'ta Giriş sekmesinde <b>Yeni Görev</b> tıklanır (ya da bu penceredeki <b>+ Yeni Görev</b>), form doldurulur, <b>Gönder</b> tıklanır.</p>
+        <ol>
+          <li><b>Sorumlu(lar)</b>: görevi yapacak kişiler. Adres Defteri ile seçilir veya e-posta adresi yazılır; birden çok kişi noktalı virgülle ayrılır.</li>
+          <li><b>Bilgi</b>: görevi izlemesi istenenler (isteğe bağlı).</li>
+          <li><b>Başlık</b> (zorunlu): e-postanın konusu olur.</li>
+          <li><b>Başlangıç</b> ve <b>Termin</b> (zorunlu): Gantt'ta çubuk bu iki tarih arasında çizilir.</li>
+          <li><b>Öncelik</b>: Düşük, Normal, Yüksek, Kritik.</li>
+          <li><b>Proje / Kategori</b>: aynı işe ait görevleri bir arada görmek için; önceki projeler önerilir.</li>
+          <li><b>Açıklama</b> ve <b>Alt adımlar</b>: alt adımlar her satıra bir madde yazılır, sorumlu tek tek işaretler.</li>
+          <li><b>Ekler</b>: görevle birlikte gidecek dosyalar.</li>
+        </ol>
+        <p><b>Seçenekler</b> — görevi veren karar verir, son seçim bir sonraki görevde hazır gelir:</p>
+        <table>
+          <tr><th>Seçenek</th><th>Anlamı</th><th>Ne zaman</th></tr>
+          <tr><td>Her biri için ayrı görev</td><td>Her sorumluya kendi görevi gider; bağımsız kabul eder, ilerletir, tamamlar</td><td>Aynı iş birden çok kişiye ayrı ayrı yaptırılacaksa</td></tr>
+          <tr><td>Ortak tek görev</td><td>Tek görev, birden çok sorumlu; durum ortak, iş kayıtları kişi bazında</td><td>Bir iş birlikte yürütülecekse</td></tr>
+          <tr><td>Efor takibi açık</td><td>Her iş kaydında harcanan saat zorunlu; tahmini saat girilir</td><td>Harcanan zaman raporlanacaksa</td></tr>
+          <tr><td>Efor takibi kapalı</td><td>İş kaydında yalnızca not ve ilerleme yüzdesi</td><td>Zaman takibi gerekmeyen işlerde</td></tr>
+        </table>
+
+        <h2 id="y-gelen">Gelen görevde yapılacaklar</h2>
+        <p>Görev alan kişi önce görevi <b>kabul eder</b> veya gerekçesiyle <b>reddeder</b>, sonra çalıştıkça <b>iş kaydı</b> girer, iş bitince <b>Tamamla</b> der. Her işlem görevi verene ve bilgi listesine otomatik e-posta olarak gider; ayrıca yanıt yazmak gerekmez.</p>
+        <p><b>Düğmeler nerede?</b> Görev e-postasının içinde, başlığın altında (o bildirime uygun işlemler ve Görevi Aç); e-postaya sağ tıklanınca <b>Görev</b> alt menüsünde; e-posta seçiliyken Outlook Giriş sekmesindeki <b>Görev</b> grubunda; e-posta açıkken İleti sekmesinde; bu pencerede görev seçildiğinde sağdaki detay panelinde tüm işlemler. Düğmeler yalnızca o anda yapılabilen işlemler için görünür.</p>
+        <table>
+          <tr><th>İşlem</th><th>Ne yapar</th><th>İstenen bilgi</th></tr>
+          <tr><td>Kabul</td><td>Görev üstlenilir; durum "Kabul edildi" olur</td><td>İsteğe bağlı not</td></tr>
+          <tr><td>Reddet</td><td>Görev geri çevrilir; görevi veren yeniden açabilir</td><td>Gerekçe (zorunlu)</td></tr>
+          <tr><td>İş Kaydı</td><td>O gün yapılan iş kaydedilir; ilk kayıtla durum "Devam ediyor" olur</td><td>Tarih, not, ilerleme %; efor takibi açıksa saat (zorunlu)</td></tr>
+          <tr><td>Beklet / Devam et</td><td>Dış bir engel varken görev beklemeye alınır, engel kalkınca sürdürülür</td><td>İsteğe bağlı not</td></tr>
+          <tr><td>Termin iste</td><td>Terminin uzatılması görevi verene önerilir; karar görevi verenindir</td><td>Önerilen tarih, gerekçe</td></tr>
+          <tr><td>Tamamla</td><td>İş bitirilir; ilerleme %100 olur, görevi veren onaylayıp kapatır</td><td>İsteğe bağlı not</td></tr>
+          <tr><td>Yorum</td><td>Görevle ilgili not; tüm taraflar görür</td><td>Metin</td></tr>
+        </table>
+        <p class="uyari">Görev e-postasına <b>Yanıtla</b> ile cevap yazmak görevi güncellemez. Bu yüzden görev maillerinde Yanıtla, o an yapılabilecek görev işlemlerini sunar; yalnızca ileti göndermek için <b>Yine de yanıtla</b> seçilir.</p>
+
+        <h2 id="y-pencere">Görevler penceresi</h2>
+        <p>Bu pencere verilen ve alınan tüm görevleri tek yerde gösterir. Üst çubuktaki filtreler: <b>Kapsam</b> (Verdiklerim / Üzerimdekiler / İzlediklerim), <b>Durum</b> (varsayılan "Açık olanlar"), Proje, Kişi, Gecikmiş ve arama.</p>
+        <table>
+          <tr><th>Görünüm</th><th>Ne gösterir</th><th>Nasıl kullanılır</th></tr>
+          <tr><td>Liste</td><td>Tüm görevler tablo halinde; başlığa tıklayınca sıralanır</td><td>Satıra tıklanınca sağda detay paneli açılır</td></tr>
+          <tr><td>Kanban</td><td>Görevler durum sütunlarında kart olarak</td><td>Kart başka sütuna sürüklenince ilgili işlem penceresi açılır</td></tr>
+          <tr><td>Gantt</td><td>Başlangıçtan termine çubuk, dolu kısım ilerleme, kesikli çizgi bugün, gecikmiş kırmızı</td><td>Ölçek (gün/hafta/ay) ve gruplama (proje/sorumlu) üstten seçilir</td></tr>
+          <tr><td>Yük</td><td>Kişi başına açık, gecikmiş, tamamlanan görev; efor takibinde tahmini/harcanan/kalan saat</td><td>Kimin üzerinde ne kadar iş olduğunu görmek için</td></tr>
+        </table>
+        <p>Detay panelinde durum, taraflar, tarihler, açıklama, alt adımlar, iş kayıtları ve yorumlar bulunur; üstteki düğmeler yapılabilen işlemlerdir. <b>Maili aç</b> orijinal e-postayı açar. <b>CSV</b> listeyi Excel'de açılabilen dosyaya aktarır.</p>
+
+        <h2 id="y-takip">Görev veren için takip</h2>
+        <p>Sorumlunun her işlemi hem e-posta olarak gelir hem de <b>Verdiklerim</b> listesinde anında görünür. Günlük takip için Kanban, tarih baskısı için Gantt, kişi dağılımı için Yük görünümü kullanılır.</p>
+        <table>
+          <tr><th>İşlem</th><th>Ne zaman</th><th>Sonuç</th></tr>
+          <tr><td>Kapat (onayla)</td><td>Sorumlu "Tamamla" dedikten sonra, iş kontrol edilince</td><td>Görev kapanır</td></tr>
+          <tr><td>Yeniden aç</td><td>Tamamlanan iş eksikse ya da reddedilen/iptal edilen görev tekrar verilecekse</td><td>Gerekçeyle sorumluya gider</td></tr>
+          <tr><td>Termin değiştir</td><td>Sorumlu termin istediğinde ya da plan değiştiğinde</td><td>Yeni termin tüm taraflara gider</td></tr>
+          <tr><td>İptal et</td><td>Görev artık gerekli değilse</td><td>Gerekçeyle tüm taraflara gider</td></tr>
+          <tr><td>Yorum</td><td>Her zaman</td><td>Tüm taraflar görür</td></tr>
+        </table>
+        <p>Sorumlunun termin isteği detay panelinde tarihlerin yanında "(istek: …)" olarak görünür; kabul için <b>Termin değiştir</b>, red için <b>Yorum</b> ile cevap verilir.</p>
+
+        <h2 id="y-durumlar">Durumlar</h2>
+        <svg class="durum-akisi" viewBox="0 0 760 250" role="img" aria-label="Görev durumları ve geçişler" font-size="12">
+          <defs><marker id="y-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9aa0a6"/></marker></defs>
+          <g fill="none" stroke="#9aa0a6" stroke-width="1.25">
+            <path d="M154 80H170" marker-end="url(#y-ok)"/><path d="M294 80H310" marker-end="url(#y-ok)"/><path d="M434 80H450" marker-end="url(#y-ok)"/><path d="M574 80H590" marker-end="url(#y-ok)"/>
+            <path d="M92 102V162" marker-end="url(#y-ok)"/>
+            <path d="M342 102V162" marker-start="url(#y-ok)" marker-end="url(#y-ok)"/>
+            <path d="M402 102V140H512V162" stroke-dasharray="4 4" marker-end="url(#y-ok)"/>
+            <path d="M652 58V34H372V58" marker-end="url(#y-ok)"/>
+          </g>
+          <g fill="none" stroke="#9aa0a6" stroke-width="1.25">
+            <rect x="30" y="58" width="124" height="44" rx="8"/><rect x="170" y="58" width="124" height="44" rx="8"/><rect x="310" y="58" width="124" height="44" rx="8"/><rect x="450" y="58" width="124" height="44" rx="8"/>
+            <rect x="590" y="58" width="124" height="44" rx="8" stroke="#2b579a" stroke-width="2" fill="#2b579a" fill-opacity="0.12"/>
+            <rect x="30" y="162" width="124" height="44" rx="8"/><rect x="310" y="162" width="124" height="44" rx="8"/><rect x="450" y="162" width="124" height="44" rx="8"/>
+          </g>
+          <g fill="#222" text-anchor="middle">
+            <text x="92" y="84">Yeni</text><text x="232" y="84">Kabul edildi</text><text x="372" y="84">Devam ediyor</text><text x="512" y="84">Tamamlandı</text><text x="652" y="84" font-weight="600">Kapatıldı</text>
+            <text x="92" y="188">Reddedildi</text><text x="372" y="188">Beklemede</text><text x="512" y="188">İptal edildi</text>
+          </g>
+          <g fill="#666" font-size="11" text-anchor="middle">
+            <text x="162" y="50">kabul</text><text x="302" y="50">iş kaydı</text><text x="442" y="50">tamamla</text><text x="582" y="50">kapat (onay)</text>
+            <text x="512" y="28">yeniden aç (görev veren)</text>
+            <text x="100" y="136" text-anchor="start">reddet (gerekçe)</text>
+            <text x="334" y="136" text-anchor="end">beklet / devam et</text>
+            <text x="512" y="232">görev veren her açık görevi iptal edebilir</text>
+          </g>
+        </svg>
+        <p>Üst sıradaki geçişleri sorumlu yapar (kabul, iş kaydı, tamamla); kapatma, yeniden açma ve iptal görevi verene aittir. Kabul edilmeden iş kaydı girilirse görev doğrudan "Devam ediyor" olur. Reddedilen görev yeniden açılırsa "Yeni" durumuna döner.</p>
+
+        <h2 id="y-web">Web, Mac ve yeni Outlook</h2>
+        <p>Bu sürüm Outlook'un web sürümünde, yeni Outlook'ta, Mac için Outlook'ta ve doğrudan tarayıcıda (Linux dahil) çalışır. Windows'taki klasik Outlook eklentisiyle aynı görev maillerini kullanır; iki sürümü kullananlar birbirine görev verebilir.</p>
+        <ul>
+          <li><b>Outlook içinde:</b> bir ileti açıkken <b>Görev → Görevler</b> düğmesi bölmeyi açar. Açık ileti bir görev mailiyse görev kendiliğinden seçilir ve yapılabilecek işlemler (Kabul, İş Kaydı, Tamamla…) düğme olarak görünür. Bölme sabitlenirse iletiler arasında gezerken açık kalır.</li>
+          <li><b>Tarayıcıda:</b> aynı adres tek başına açılır; kanban, Gantt ve yük görünümleri geniş ekranda rahat kullanılır. Bölmedeki <b>Tarayıcıda aç</b> bağlantısı da buraya getirir.</li>
+          <li><b>Görev maillerindeki düğmeler</b> (Kabul Et, İş Kaydı…) yalnızca Windows eklentisinde çalışır; burada bölmedeki düğmeler kullanılır.</li>
+          <li><b>Eşitleme:</b> görevler posta kutusundaki maillerden okunur; pencere açıkken iki dakikada bir ve <b>⟳</b> düğmesiyle yenilenir. Bağlantı yokken yapılan işlemler bekletilir, bağlantı gelince gönderilir.</li>
+          <li><b>Hesap:</b> görevler oturum açılan posta kutusunda tutulur. Yalnızca Microsoft 365 / Outlook.com posta kutuları desteklenir.</li>
+        </ul>
+        <p>Görevler eksik görünüyorsa bu tarayıcıdaki kayıtlar posta kutusundan baştan kurulabilir: <button type="button" data-komut="yenidenKur">Veritabanını Yeniden Kur</button></p>
+
+        <h2 id="y-sss">Sık sorulan sorular</h2>
+        <p>Çoğu sorun Outlook'ta <b>Görev → Araçlar</b> menüsündeki üç düğmeyle çözülür: <b>Gelen Kutusunu Tara</b>, <b>Bekleyenleri Gönder</b>, <b>Veritabanını Yeniden Kur</b>.</p>
+        <table>
+          <tr><th>Soru</th><th>Cevap</th></tr>
+          <tr><td>Görev e-postası geldi ama burada görünmüyor</td><td>Outlook kapalıyken gelenler açılıştan birkaç saniye sonra işlenir. Hâlâ yoksa <b>Araçlar → Gelen Kutusunu Tara</b>.</td></tr>
+          <tr><td>Kabul ettim ama karşı tarafa gitmedi</td><td>Outlook çevrimdışıysa işlem bekletilir, bağlantı gelince gönderilir. Hızlandırmak için <b>Araçlar → Bekleyenleri Gönder</b>.</td></tr>
+          <tr><td>Başka bilgisayarda görevlerim yok</td><td>Görevler posta kutusunda saklanır ve ilk açılışta geri gelir; birkaç dakika beklenir. Gelmezse <b>Araçlar → Veritabanını Yeniden Kur</b>.</td></tr>
+          <tr><td>Görev e-postasını sildim</td><td>Silinmiş Öğeler'den <b>Görevler</b> klasörüne geri taşınır. Görev kaydı kaybolmaz.</td></tr>
+          <tr><td>Yanıtla'ya basınca seçim penceresi açılıyor</td><td>Yanıt görevi değiştirmez; görev işlemi seçilir ya da yalnızca ileti için "Yine de yanıtla" denir.</td></tr>
+          <tr><td>Maildeki düğme bir şey yapmıyor</td><td>Outlook'un açık ve eklentinin etkin olduğu kontrol edilir (Dosya → Seçenekler → Eklentiler).</td></tr>
+          <tr><td>Düğmeler görünmüyor / gri</td><td>O işlem şu anki durumda ya da bu rolde yapılamaz (bilgi alıcısı yalnızca yorum yazar; kabul edilmemiş görev tamamlanamaz).</td></tr>
+          <tr><td>Görev alan kişi eklentiyi kurmamış</td><td>Görevi normal e-posta olarak okur; ilerleme kaydı tutulamaz. Kurduğunda görev kendiliğinden görünür.</td></tr>
+          <tr><td>Outlook'ta Görev grubu kayboldu</td><td>Dosya → Seçenekler → Eklentiler → Yönet: COM Eklentileri → Git → Görev Eklentisi işaretlenir. Orada yoksa Yönet: Devre Dışı Öğeler → Etkinleştir.</td></tr>
+        </table>
+
+        <h2 id="y-destek">Destek</h2>
+        <p>Sorun çözülmezse BT'ye başvurulur. Başvuruya eklenecekler: ne yapılmak istendi, ne oldu ve saat; ekran görüntüsü; görev numarası (listedeki 8 haneli kod); <b>Araçlar → Günlük Klasörünü Aç</b> ile açılan klasördeki o güne ait <code>.log</code> dosyası.</p>
+
+        <h2 id="y-hakkinda">Hakkında</h2>
+        <div class="hakkinda">
+          <img src="ncu-logo.png" alt="NCU">
+          <div>
+            <div class="hk-ad">Görev Eklentisi <span id="hkSurum" class="hk-surum"></span></div>
+            <div>Geliştirici: <b>NCU</b></div>
+            <div class="hk-not">Outlook 2016/2019 için görev atama ve takip eklentisi. Görevler e-posta ile taşınır; dış sunucu kullanılmaz, veri kurum dışına çıkmaz.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<aside id="detay" class="kapali">
+  <div class="detay-ust">
+    <div>
+      <div class="kisa" id="dKisaId"></div>
+      <h2 id="dBaslik"></h2>
+    </div>
+    <button id="dKapat" title="Kapat">✕</button>
+  </div>
+  <div class="detay-govde" id="dGovde"></div>
+</aside>
+</div>
+
+<footer class="alt-imza">
+  <img src="ncu-logo.png" alt="">
+  <span>Görev Eklentisi <span id="altSurum"></span> · NCU</span>
+</footer>
+
+<div id="bildirim" class="bildirim gizli"></div>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<script src="vendor/msal-browser.min.js?v=0.1.39"></script>
+<script src="yapilandirma.js?v=0.1.39"></script>
+<script src="cekirdek.js?v=0.1.39"></script>
+<script src="depo.js?v=0.1.39"></script>
+<script src="servis.js?v=0.1.39"></script>
+<script src="graph.js?v=0.1.39"></script>
+<script src="formlar.js?v=0.1.39"></script>
+<script src="kopru.js?v=0.1.39"></script>
+<script src="app.js?v=0.1.39"></script>
+</body>
+</html>
