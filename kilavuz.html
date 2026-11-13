@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Görev Eklentisi — Kullanım Kılavuzu</title>
+<link rel="icon" href="eklenti/simgeler/simge-32.png">
+<link rel="stylesheet" href="indir.css?v=0.1.42">
+</head>
+<body class="belge">
+<header class="ust">
+  <a href="./"><img src="eklenti/simgeler/simge-64.png" alt="Görev Eklentisi" width="40" height="40"></a>
+  <nav class="gezinti">
+    <a href="./">İndir</a>
+    <a href="kilavuz.html" aria-current="page">Kullanım kılavuzu</a>
+    <a href="web-kurulum.html">Mac, web ve yeni Outlook kurulumu</a>
+    <a href="eklenti/destek.html">Destek</a>
+  </nav>
+</header>
+<div class="belge-duzen">
+  <aside class="icindekiler"><b>Bu sayfada</b>
+    <a href="#eklenti-nedir">Eklenti nedir?</a>
+    <a href="#kurulum">Kurulum</a>
+    <a href="#ilk-açılış">İlk açılış</a>
+    <a href="#görev-gönderme">Görev gönderme</a>
+    <a href="#gelen-görevde-yapılacaklar">Gelen görevde yapılacaklar</a>
+    <a href="#görevler-penceresi">Görevler penceresi</a>
+    <a href="#görev-veren-için-takip">Görev veren için takip</a>
+    <a href="#durumlar">Durumlar</a>
+    <a href="#birden-çok-e-posta-hesabı">Birden çok e-posta hesabı</a>
+    <a href="#sık-sorulan-sorular">Sık sorulan sorular</a>
+    <a href="#güncelleme">Güncelleme</a>
+    <a href="#eklentiyi-kaldırma">Eklentiyi kaldırma</a>
+    <a href="#destek">Destek</a>
+    <a href="#hakkında">Hakkında</a>
+  </aside>
+  <main>
+<h1>Görev Eklentisi — Kullanım Kılavuzu</h1>
+<p>Son kullanıcı için. Teknik bilgi gerektirmez.</p>
+<p>Aynı kılavuz eklentinin içinde de bulunur: Outlook Giriş sekmesi → <b>Görev → Yardım</b> düğmesi, ya da Görevler penceresindeki <b>? Yardım</b> sekmesi. İnternet gerektirmez.</p>
+<h2 id="eklenti-nedir">Eklenti nedir?</h2>
+<p>Görev Eklentisi, Outlook içinden bir e-posta gönderir gibi görev vermeyi ve bu görevleri tek ekrandan izlemeyi sağlar. Görev gönderme, kabul etme, ilerleme bildirme ve tamamlama işlemleri Outlook'un içindeki düğmelerle yapılır; ayrı bir program açılmaz.</p>
+<p>Görevler e-posta ile taşınır. Bu yüzden internet bağlantısı gerekmez; kurum e-postası çalışıyorsa eklenti de çalışır. Görev alan kişide eklenti yoksa görev yine normal bir e-posta olarak okunur, yalnızca düğmeler görünmez.</p>
+<p>İki rol vardır: <b>görev veren</b> (görevi açar, izler, kapatır) ve <b>sorumlu</b> (görevi kabul eder, yaptıklarını kaydeder, tamamlar). İstenirse üçüncü kişiler <b>bilgi</b> olarak eklenir; bunlar görevi ve gelişmeleri görür ama işlem yapmaz.</p>
+<h2 id="kurulum">Kurulum</h2>
+<p>Bu bölüm Windows'taki klasik Outlook içindir. Mac, yeni Outlook, Outlook web ve Linux için web sürümü kullanılır: bkz. <a href="web-kurulum.html">Mac, web ve yeni Outlook kurulumu</a>.</p>
+<p>Kurulum beş dakikadan kısa sürer ve yalnızca bir kez yapılır. Eklenti BT tarafından uzaktan yüklendiyse hiçbir şey yapılması gerekmez; doğrudan <b>Doğrulama</b> adımına geçilir.</p>
+<ol><li>Outlook'ta kaydedilmemiş taslak varsa kaydedilir (kurulum Outlook'u kapatacaktır).</li><li>Kurulum dosyası indirilir ve çift tıklanarak çalıştırılır: <a href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi-Kurulum.exe" target="_blank" rel="noopener">GorevEklentisi-Kurulum.exe</a> (bağlantı her zaman en son sürümü verir; indirme sayfası: <a href="https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/" target="_blank" rel="noopener">https://caglarutkuguler.github.io/gorev-eklentisi-dagitim/</a>).</li><li>Windows &quot;Bu uygulamanın cihazınızda değişiklik yapmasına izin verilsin mi?&quot; diye sorarsa <b>Evet</b> seçilir. Yönetici parolası istenirse BT'den alınan parola girilir. &quot;Windows bilgisayarınızı korudu&quot; uyarısı çıkarsa <b>Daha fazla bilgi → Yine de çalıştır</b>.</li><li>Kurulum kendiliğinden ilerler: gerekli Microsoft bileşenleri eksikse önce onlar kurulur (ilk kez birkaç dakika sürebilir), ardından eklenti. Outlook açıksa kurulum onu kapatır. Ek ayar yoktur.</li><li>Kurulum bitince Outlook kendiliğinden açılır ve kılavuz sayfası bir kez gösterilir. Kurulum penceresi <b>Close</b> ile kapatılır.</li></ol>
+<p><b>Doğrulama</b></p>
+<p>Outlook'un <b>Giriş</b> sekmesinde, Yeni E-posta düğmesinin yanında <b>Görev</b> adlı bir grup görünür; içinde <b>Yeni Görev</b> ve <b>Görevler</b> düğmeleri bulunur. Bu grup görünüyorsa kurulum tamamdır.</p>
+<p>[Ekran görüntüsü: Giriş sekmesi, Görev grubu]</p>
+<p><b>Görev grubu görünmüyorsa</b></p>
+<ol><li>Outlook'ta <b>Dosya → Seçenekler → Eklentiler</b> açılır.</li><li>Pencerenin altındaki <b>Yönet</b> kutusunda <b>COM Eklentileri</b> seçilip <b>Git</b> tıklanır.</li><li>Listede <b>Görev Eklentisi</b> satırının başındaki kutu işaretlenir, <b>Tamam</b> tıklanır.</li><li>Listede satır yoksa aynı <b>Yönet</b> kutusundan <b>Devre Dışı Öğeler</b> seçilir; Görev Eklentisi orada ise seçilip <b>Etkinleştir</b> tıklanır ve Outlook yeniden başlatılır.</li><li>Yine görünmüyorsa BT'ye başvurulur (bkz. Destek).</li></ol>
+<h2 id="ilk-açılış">İlk açılış</h2>
+<p>Eklenti ilk açılışta Gelen Kutusu'nun altında <b>Görevler</b> adlı bir klasör oluşturur. Gelen görev e-postaları otomatik olarak bu klasöre taşınır; Gelen Kutusu'nda birikmez. Klasör silinmemelidir: eklenti görev geçmişini buradaki e-postalardan okur.</p>
+<p>Yeni bir görev geldiğinde veya bir görevde değişiklik olduğunda ekranın sağ altında kısa bir bildirim çıkar. Sorumlu olunan görevler ayrıca Outlook'un kendi <b>Görevler</b> listesinde ve Yapılacaklar çubuğunda da görünür; buradaki satırlar yalnızca gösterim içindir, işlem eklenti düğmelerinden yapılır.</p>
+<p>Açılışta termini geçmiş veya 2 gün içinde dolacak görev varsa bir hatırlatma gösterilir.</p>
+<h2 id="görev-gönderme">Görev gönderme</h2>
+<p>Görev göndermek yeni bir e-posta yazmak kadar sürer: Giriş sekmesinde <b>Yeni Görev</b> tıklanır, form doldurulur, <b>Gönder</b> tıklanır.</p>
+<p>[Ekran görüntüsü: Yeni Görev formu]</p>
+<ol><li><b>Sorumlu(lar)</b>: görevi yapacak kişiler. <b>Adres Defteri…</b> düğmesiyle seçilir veya e-posta adresi yazılır; birden çok kişi noktalı virgülle ayrılır.</li><li><b>Bilgi</b>: görevi izlemesi istenen kişiler (isteğe bağlı). Gelişmeleri görür, işlem yapamaz.</li><li><b>Başlık</b> (zorunlu): e-postanın konusu olur; kısa ve açıklayıcı yazılır.</li><li><b>Başlangıç</b> ve <b>Termin</b> (zorunlu): termin, işin bitmesi beklenen tarihtir. Gantt görünümünde çubuk bu iki tarih arasında çizilir.</li><li><b>Öncelik</b>: Düşük, Normal, Yüksek, Kritik.</li><li><b>Proje / Kategori</b>: aynı işe ait görevleri bir arada görmek için kullanılır; önceki projeler listede önerilir.</li><li><b>Açıklama</b> ve <b>Alt adımlar</b>: açıklama serbest metindir; alt adımlar her satıra bir madde yazılır ve sorumlu bunları tek tek işaretleyebilir.</li><li><b>Ekler</b>: görevle birlikte gidecek dosyalar.</li></ol>
+<p><b>Seçenekler</b></p>
+<p>Formun ortasında iki seçenek vardır; görevi veren kişi karar verir ve son seçim bir sonraki görevde hazır gelir.</p>
+<div class="tablo-sar"><table><thead><tr><th>Seçenek</th><th>Anlamı</th><th>Ne zaman kullanılır</th></tr></thead><tbody><tr><td>Her biri için ayrı görev</td><td>Seçilen her sorumluya kendi görevi gider; her biri bağımsız kabul eder, ilerletir, tamamlar</td><td>Aynı iş birden çok kişiye ayrı ayrı yaptırılacaksa (örn. her birim kendi raporunu hazırlayacak)</td></tr><tr><td>Ortak tek görev</td><td>Tek görev, birden çok sorumlu; durum ortaktır, iş kayıtları kişi bazında tutulur</td><td>Bir iş birlikte yürütülecekse</td></tr><tr><td>Efor takibi açık</td><td>Sorumlu her iş kaydında harcadığı saati yazmak zorundadır; tahmini saat girilir</td><td>Harcanan zaman raporlanacaksa</td></tr><tr><td>Efor takibi kapalı</td><td>İş kaydında yalnızca not ve ilerleme yüzdesi istenir</td><td>Zaman takibi gerekmeyen işlerde</td></tr></tbody></table></div>
+<p>Gönderilen görev, sorumlulara ve bilgi listesindekilere <code>[GÖREV] &lt;başlık&gt;</code> konulu bir e-posta olarak ulaşır. Gönderen tarafta görev <b>Görevler</b> penceresinde <b>Verdiklerim</b> altında görünür.</p>
+<h2 id="gelen-görevde-yapılacaklar">Gelen görevde yapılacaklar</h2>
+<p>Görev alan kişi önce görevi <b>kabul eder</b> veya gerekçesiyle <b>reddeder</b>, sonra çalıştıkça <b>iş kaydı</b> girer, iş bitince <b>Tamamla</b> der. Her işlem görevi verene (ve bilgi listesine) otomatik bir e-posta olarak gider; ayrıca yanıt yazmak gerekmez.</p>
+<p><b>Düğmeler nerede?</b></p>
+<ul><li><b>E-postanın içinde</b>, başlığın hemen altında: o bildirime uygun düğmeler (yeni görevde Kabul Et / Reddet / İş Kaydı; tamamlanan görevde Onayla ve Kapat / Yeniden Aç; her mailde Görevi Aç). Tıklanınca ilgili işlem penceresi açılır.</li><li>E-postaya <b>sağ tıklanınca</b> açılan menüde <b>Görev</b> alt menüsü.</li><li>Görev e-postası seçiliyken <b>Giriş</b> sekmesindeki <b>Görev</b> grubunda: Kabul, İş Kaydı, Tamamla, Görevi Aç.</li><li>E-posta çift tıklanıp açıldığında <b>İleti</b> sekmesinde (Reddet ve Onayla ve Kapat dahil).</li><li><b>Görevler</b> penceresinde görev seçildiğinde sağdaki detay panelinde tüm işlemler (Beklet, Termin iste, Yorum dahil).</li></ul>
+<p>Düğmeler yalnızca o anda yapılabilen işlemler için aktiftir; örneğin kabul edilmemiş bir görevde Tamamla gri görünür.</p>
+<p>[Ekran görüntüsü: Görevler klasöründe seçili görev ve Görev grubu]</p>
+<p><b>İşlemler</b></p>
+<div class="tablo-sar"><table><thead><tr><th>İşlem</th><th>Ne yapar</th><th>İstenen bilgi</th></tr></thead><tbody><tr><td>Kabul</td><td>Görev üstlenilir; durum &quot;Kabul edildi&quot; olur</td><td>İsteğe bağlı not</td></tr><tr><td>Reddet</td><td>Görev geri çevrilir; görevi veren yeniden açabilir</td><td>Gerekçe (zorunlu)</td></tr><tr><td>İş Kaydı</td><td>O gün yapılan iş kaydedilir; ilk kayıtla durum &quot;Devam ediyor&quot; olur</td><td>Tarih, not, ilerleme %; efor takibi açıksa harcanan saat (zorunlu)</td></tr><tr><td>Beklet / Devam et</td><td>Dış bir engel varken görev beklemeye alınır, engel kalkınca sürdürülür</td><td>İsteğe bağlı not</td></tr><tr><td>Termin iste</td><td>Terminin uzatılması görevi verene önerilir; karar görevi verenindir</td><td>Önerilen tarih, gerekçe</td></tr><tr><td>Tamamla</td><td>İş bitirilir; ilerleme %100 olur, görevi veren onaylayıp kapatır</td><td>İsteğe bağlı not</td></tr><tr><td>Yorum</td><td>Görevle ilgili not düşülür; tüm taraflar görür</td><td>Metin</td></tr></tbody></table></div>
+<p>Alt adımlar varsa Görevler penceresindeki detay panelinde kutucuklar işaretlenir; işaret görevi verene de yansır.</p>
+<p>Önemli: görev e-postasına <b>Yanıtla</b> ile cevap yazmak görevi güncellemez. Görevle ilgili her bildirim yukarıdaki düğmelerle yapılır.</p>
+<h2 id="görevler-penceresi">Görevler penceresi</h2>
+<p>Giriş sekmesindeki <b>Görevler</b> düğmesi tüm görevleri tek pencerede gösterir; verilen ve alınan görevler aynı yerdedir. Pencere Outlook'tan bağımsız açılır, Outlook'ta çalışmaya devam edilebilir.</p>
+<p>[Ekran görüntüsü: Görevler penceresi, Liste görünümü]</p>
+<p><b>Üst çubuktaki filtreler</b></p>
+<ul><li><b>Kapsam</b>: Tüm görevler · Verdiklerim (görevi veren olunanlar) · Üzerimdekiler (sorumlu olunanlar) · İzlediklerim (bilgi olarak eklenilenler).</li><li><b>Durum</b>: varsayılan &quot;Açık olanlar&quot;; tamamlanmış ve kapatılmış görevler için &quot;Tüm durumlar&quot; seçilir.</li><li><b>Proje</b>, <b>Kişi</b>, <b>Gecikmiş</b> kutusu ve arama kutusu.</li></ul>
+<p><b>Görünümler</b></p>
+<div class="tablo-sar"><table><thead><tr><th>Görünüm</th><th>Ne gösterir</th><th>Nasıl kullanılır</th></tr></thead><tbody><tr><td>Liste</td><td>Tüm görevler tablo halinde; sütun başlığına tıklayınca sıralanır</td><td>Satıra tıklanınca sağda detay paneli açılır</td></tr><tr><td>Kanban</td><td>Görevler durum sütunlarında kart olarak (Yeni → Kabul edildi → Devam ediyor → Beklemede → Tamamlandı → Kapatıldı)</td><td>Kart başka sütuna sürüklenince ilgili işlem penceresi açılır; izinsiz geçişte uyarı verilir</td></tr><tr><td>Gantt</td><td>Zaman çizelgesi: her görev başlangıçtan termine bir çubuk, dolu kısım ilerleme yüzdesi, kırmızı kesikli çizgi bugün, gecikmiş görevler kırmızı</td><td>Ölçek (gün/hafta/ay) ve gruplama (proje/sorumlu) üstten seçilir</td></tr><tr><td>Yük</td><td>Kişi başına açık, gecikmiş ve tamamlanan görev sayısı; efor takibi açık görevlerde tahmini/harcanan/kalan saat</td><td>Kimin üzerinde ne kadar iş olduğunu görmek için</td></tr></tbody></table></div>
+<p><b>Detay paneli</b></p>
+<p>Bir görev seçildiğinde sağda açılır: durum ve ilerleme, taraflar, tarihler, açıklama, alt adımlar, iş kayıtları ve yorumlar. Üstteki düğmeler o anda yapılabilen işlemleri gösterir. <b>Maili aç</b> düğmesi görevin orijinal e-postasını açar.</p>
+<p><b>CSV</b> düğmesi listedeki görevleri Excel'de açılabilen bir dosyaya aktarır. <b>⟳</b> listeyi yeniler; normalde gerekmez, yeni e-posta geldiğinde pencere kendiliğinden güncellenir.</p>
+<h2 id="görev-veren-için-takip">Görev veren için takip</h2>
+<p>Görevi veren kişi hiçbir şey yapmadan gelişmeleri alır: sorumlunun her işlemi hem e-posta olarak gelir hem de Görevler penceresindeki <b>Verdiklerim</b> listesinde anında görünür. Günlük takip için Kanban, tarih baskısı için Gantt, kişi dağılımı için Yük görünümü kullanılır.</p>
+<p>Görevi verenin yapabildiği işlemler (Görevler penceresi → görev seçili → detay paneli):</p>
+<div class="tablo-sar"><table><thead><tr><th>İşlem</th><th>Ne zaman</th><th>Sonuç</th></tr></thead><tbody><tr><td>Kapat (onayla)</td><td>Sorumlu &quot;Tamamla&quot; dedikten sonra, iş kontrol edilince</td><td>Görev kapanır; listelerde &quot;Kapatıldı&quot; olur</td></tr><tr><td>Yeniden aç</td><td>Tamamlanan iş eksikse, ya da reddedilen/iptal edilen görev tekrar verilecekse</td><td>Gerekçe ile birlikte sorumluya gider; görev yeniden açılır</td></tr><tr><td>Termin değiştir</td><td>Sorumlu termin istediğinde ya da plan değiştiğinde</td><td>Yeni termin tüm taraflara gider; sorumlunun bekleyen isteği kapanır</td></tr><tr><td>İptal et</td><td>Görev artık gerekli değilse</td><td>Gerekçe ile birlikte tüm taraflara gider</td></tr><tr><td>Tamamla</td><td>Sorumlu yerine işi bitirmek gerektiğinde</td><td>Görev &quot;Tamamlandı&quot; olur</td></tr><tr><td>Yorum</td><td>Her zaman</td><td>Tüm taraflar görür</td></tr></tbody></table></div>
+<p>Sorumlu bir termin değişikliği istediğinde bu, detay panelinde tarihlerin yanında &quot;(istek: …)&quot; olarak görünür; kabul için <b>Termin değiştir</b>, red için <b>Yorum</b> ile cevap verilir.</p>
+<p>&quot;Her biri için ayrı görev&quot; seçilerek birden çok kişiye gönderilen görevler listede ayrı satırlar olarak görünür; proje filtresi veya başlığa göre arama ile bir arada izlenir.</p>
+<h2 id="durumlar">Durumlar</h2>
+<pre><code>Yeni ──kabul──► Kabul edildi ──iş kaydı──► Devam ediyor ──tamamla──► Tamamlandı ──kapat (onay)──► Kapatıldı
+ │                                           ▲    │
+ └──reddet (gerekçe)──► Reddedildi           └────┘ beklet / devam et ◄──► Beklemede
+
+Görev veren her açık görevi iptal edebilir (→ İptal edildi) ve Tamamlandı/Kapatıldı/Reddedildi/İptal edildi görevi yeniden açabilir.</code></pre>
+<p>Üst sıradaki geçişleri sorumlu yapar (kabul, iş kaydı, tamamla); kapatma, yeniden açma ve iptal görevi verene aittir. Kabul edilmeden doğrudan iş kaydı girilirse görev &quot;Devam ediyor&quot; durumuna geçer. Reddedilen bir görev yeniden açılırsa &quot;Yeni&quot; durumuna döner ve sorumluya tekrar gider.</p>
+<div class="tablo-sar"><table><thead><tr><th>Durum</th><th>Anlamı</th><th>Sıradaki adım</th></tr></thead><tbody><tr><td>Yeni</td><td>Görev gönderildi, sorumlu henüz yanıtlamadı</td><td>Sorumlu: Kabul veya Reddet</td></tr><tr><td>Kabul edildi</td><td>Sorumlu görevi üstlendi</td><td>Sorumlu: iş kaydı girmeye başlar</td></tr><tr><td>Devam ediyor</td><td>En az bir iş kaydı girildi</td><td>Sorumlu: iş kaydı, Tamamla</td></tr><tr><td>Beklemede</td><td>Dış bir engel var, çalışma durdu</td><td>Sorumlu: Devam et</td></tr><tr><td>Tamamlandı</td><td>Sorumlu işi bitirdi</td><td>Görev veren: Kapat (onay) ya da Yeniden aç</td></tr><tr><td>Kapatıldı</td><td>Görev veren onayladı; görev bitti</td><td>—</td></tr><tr><td>Reddedildi</td><td>Sorumlu gerekçeyle geri çevirdi</td><td>Görev veren: Yeniden aç ya da İptal</td></tr><tr><td>İptal edildi</td><td>Görev veren iptal etti</td><td>—</td></tr></tbody></table></div>
+<h2 id="birden-çok-e-posta-hesabı">Birden çok e-posta hesabı</h2>
+<p>Outlook'ta birden çok e-posta hesabı varsa (ör. kurumsal Exchange + ikinci bir IMAP hesabı) her hesabın görevleri <b>ayrı bir görev alanında</b> tutulur: ayrı görev listesi, ayrı <i>Görevler</i> klasörü, ayrı proje listesi ve tercihler. Bir hesaba gelen görev yalnızca o hesabın alanına kaydedilir; görev hangi hesaptan verildiyse karşı tarafın işlemleri de o hesaba döner.</p>
+<p><b>Kurulum (bir kez):</b></p>
+<ol><li><b>Görev → Araçlar → Görev Hesapları…</b> açılır. İlk kurulumda yalnızca birincil hesabın (Outlook'un varsayılan veri dosyası) alanı açıktır; önceki sürümlerden gelen görevler bu alandadır.</li><li>Görev için kullanılacak her hesabın <b>Görev alanı</b> kutusu işaretlenir.</li><li><b>Varsayılan</b> hesap seçilir: Yeni Görev formunda önceden seçili gelen hesap.</li><li><b>Kaydet</b>. Yeni açılan alanın görevleri posta kutusundan (gizli öğeler, Görevler klasörü, Gelen Kutusu, IMAP/POP'ta Gönderilmiş Öğeler) bulunur; kaç görev bulunduğu bildirilir.</li></ol>
+<p><b>Günlük kullanım:</b></p>
+<ul><li><b>Yeni Görev</b> formunun üstünde <b>Gönderen hesap</b> listesi çıkar. Önceden seçili gelen: ana pencerede o an açık klasörün hesabı (Outlook'un Yeni E-posta davranışı gibi), değilse varsayılan hesap. Proje önerileri seçilen hesabın listesinden gelir.</li><li><b>Görevler</b> penceresinde <b>Hesap</b> süzgeci çıkar: tek hesabın görevleri ya da <b>Tüm hesaplar</b> birlikte. Birlikte görünümde listede <b>Hesap</b> sütunu ve ayrıntı panelinde <b>Hesap</b> satırı vardır.</li><li>Maildeki düğmeler, sağ tık menüsü, okuma penceresi ve Yanıtla yerine açılan seçim penceresi, mailin bulunduğu hesabın alanında çalışır.</li><li>Aynı profilde hem görevi veren hem alan hesap varsa (kendi iki hesabı arasında görev) görev iki alanda da görünür: birinde <i>Verdiklerim</i>, diğerinde <i>Üzerimdekiler</i>. Maildeki düğmeler, işlemin yapılabildiği alanı kendiliğinden seçer.</li></ul>
+<p><b>Alanı kapatma:</b> Görev Hesapları'nda kutunun işareti kaldırılır. O hesaba gelen görev mailleri işlenmez, görevleri listede görünmez. Hiçbir veri silinmez; alan yeniden açılınca kaldığı yerden sürer (aradaki mailler tarama ile işlenir).</p>
+<p><b>Sınırlar:</b></p>
+<ul><li>IMAP/POP/ActiveSync hesaplarında görev verisi sunucuda gizli öğe olarak saklanamaz. Bilgisayar değişince bu hesapların görevleri <b>Görevler</b> klasörü ve <b>Gönderilmiş Öğeler</b> taranarak kurulur (<b>Araçlar → Veritabanını Yeniden Kur</b>). Exchange / Microsoft 365 hesaplarında görevler kendiliğinden geri gelir.</li><li>Aynı veri dosyasına (PST) teslim edilen iki hesabın yalnızca birinin alanı açılabilir: Gelen Kutusu ortak olduğundan mailin hangi alana ait olduğu ayırt edilemez. Hesaplar ayrı veri dosyalarına teslim edilecek şekilde ayarlanırsa ikisi de açılabilir.</li><li>Hesap listesinde yalnızca e-posta gönderebilen (SMTP adresi olan) hesaplar görünür; Exchange'de otomatik eklenen paylaşılan posta kutuları ayrı hesap değildir.</li></ul>
+<h2 id="sık-sorulan-sorular">Sık sorulan sorular</h2>
+<p>Çoğu sorun Giriş sekmesindeki <b>Görev → Araçlar</b> menüsündeki üç düğmeyle çözülür: <b>Gelen Kutusunu Tara</b>, <b>Bekleyenleri Gönder</b>, <b>Veritabanını Yeniden Kur</b>.</p>
+<div class="tablo-sar"><table><thead><tr><th>Soru</th><th>Cevap</th></tr></thead><tbody><tr><td>Görev e-postası geldi ama Görevler penceresinde görünmüyor</td><td>Outlook kapalıyken gelen görevler açılıştan birkaç saniye sonra işlenir. Hâlâ yoksa <b>Araçlar → Gelen Kutusunu Tara</b>.</td></tr><tr><td>Kabul ettim ama karşı tarafa gitmedi</td><td>Outlook çevrimdışıysa işlem bekletilir ve bağlantı gelince kendiliğinden gönderilir. Hızlandırmak için <b>Araçlar → Bekleyenleri Gönder</b>.</td></tr><tr><td>Birden çok hesabım var; görev hangi hesaptan gidiyor?</td><td>Yeni Görev formundaki <b>Gönderen hesap</b> listesinde seçilen hesaptan. Liste görünmüyorsa yalnızca bir hesabın görev alanı açıktır: <b>Araçlar → Görev Hesapları…</b></td></tr><tr><td>İkinci hesabıma gelen görev listede yok</td><td>O hesabın görev alanı kapalıdır: <b>Araçlar → Görev Hesapları…</b> ile açılır; geçmiş görev mailleri bulunur.</td></tr><tr><td>Başka bir bilgisayarda Outlook açtım, görevlerim yok</td><td>Görevler posta kutusunda saklanır ve ilk açılışta geri gelir; birkaç dakika beklenir. Gelmezse <b>Araçlar → Veritabanını Yeniden Kur</b>.</td></tr><tr><td>Görev e-postasını yanlışlıkla sildim</td><td>Silinmiş Öğeler'den <b>Görevler</b> klasörüne geri taşınır. Görev kaydı kaybolmaz, ancak &quot;Maili aç&quot; düğmesi e-postayı bulamayabilir.</td></tr><tr><td>Yanıtla'ya basınca yanıt penceresi yerine bir seçim penceresi açılıyor</td><td>Yanıt e-postası görevi değiştirmez; bu yüzden görev maillerinde Yanıtla, yapılabilecek görev işlemlerini sunar. Yalnızca ileti göndermek için <b>Yine de yanıtla</b> seçilir.</td></tr><tr><td>Maildeki düğmeye tıklayınca bir şey olmuyor</td><td>Düğmeler Görev Eklentisi kurulu Outlook'ta çalışır. Eklenti kuruluysa Outlook'un açık olduğu ve eklentinin etkin olduğu (Dosya → Seçenekler → Eklentiler) kontrol edilir.</td></tr><tr><td>Düğmeler gri</td><td>O işlem şu anki durumda ya da bu rolde yapılamaz (örn. bilgi alıcısı yalnızca yorum yazabilir; kabul edilmemiş görev tamamlanamaz).</td></tr><tr><td>Görev alan kişi eklentiyi kurmamış</td><td>Görevi normal e-posta olarak okur ve yanıt yazabilir; ilerleme kaydı tutulamaz. Eklentiyi kurduğunda görev kendiliğinden görünür.</td></tr><tr><td>Her gönderimde atama modu/efor takibi değiştirmek zorunda mıyım</td><td>Hayır; son seçim bir sonraki görevde hazır gelir.</td></tr><tr><td>Görev geldi diye bildirim çıkmadı</td><td>Outlook'un sağ alttaki Windows bildirimleri kapalı olabilir; e-posta yine Görevler klasöründedir.</td></tr><tr><td>Görevler penceresi açılmıyor veya boş</td><td>Pencere, kurulumla gelen bir bileşene ihtiyaç duyar; BT'ye kurulumun yeniden yapılması için başvurulur.</td></tr><tr><td>Eklenti aniden kayboldu</td><td>Outlook bazen yavaş açılan eklentileri kapatır. Kurulum bölümündeki &quot;Görev grubu görünmüyorsa&quot; adımları uygulanır.</td></tr></tbody></table></div>
+<h2 id="güncelleme">Güncelleme</h2>
+<p>Eklenti, yeni sürüm yayınlanıp yayınlanmadığını günde bir kez kendiliğinden denetler (internet gerekir; çevrimdışıyken sessizce atlanır).</p>
+<ol><li>Yeni sürüm yayınlandığında bir bildirim çıkar ve <b>Giriş → Görev</b> grubunda <b>Yeni sürüm x.y.z</b> düğmesi belirir.</li><li>Düğmeye tıklanır, <b>Evet</b> denir: kurulum dosyası tarayıcıda indirilir.</li><li>Kaydedilmemiş taslaklar kaydedilir, indirilen <code>GorevEklentisi-Kurulum.exe</code> çalıştırılır. Kurulum Outlook'u kapatır, eski sürümün üzerine kurar ve pencere kapatılınca Outlook'u yeniden açar.</li></ol>
+<p>Görevler, hesap ayarları ve tercihler güncellemede korunur. Elle denetim: <b>Görev → Araçlar → Güncellemeleri Denetle</b>. Düğme, güncelleme kurulana kadar görünür kalır; bildirim her sürüm için bir kez gösterilir.</p>
+<h2 id="eklentiyi-kaldırma">Eklentiyi kaldırma</h2>
+<p>Programlar ve Özellikler'e erişim gerekmez: <b>Görev → Araçlar → Eklentiyi Kaldır…</b></p>
+<ul><li><b>Yalnızca benim için kapat</b>: yönetici hakkı istemez. Outlook kapatılıp açıldığında eklenti bu kullanıcı için yüklenmez. Yeniden açmak için kurulum paketi tekrar çalıştırılır (ya da BT, kullanıcı kaydında <code>HKCU\Software\Microsoft\Office\Outlook\Addins\GorevEklentisi.Addin</code> altındaki <code>LoadBehavior</code> değerini 3 yapar).</li><li><b>Bilgisayardan tamamen kaldır</b>: yönetici onayı (UAC) ister; kaldırma sırasında Outlook kapatılır.</li></ul>
+<p>Her iki yolda da görevler posta kutusunda kalır; eklenti yeniden kurulduğunda geri gelir.</p>
+<h2 id="destek">Destek</h2>
+<p>Sorun yukarıdaki adımlarla çözülmezse BT'ye başvurulur. Başvuruya şunların eklenmesi çözümü hızlandırır:</p>
+<ul><li>Ne yapılmak istendi, ne oldu (bir cümle) ve saat.</li><li>Varsa ekran görüntüsü.</li><li>Görevin numarası (Görevler penceresinde satırın başındaki 8 haneli kod, örn. <code>3F1C2B6E</code>).</li><li>Eklentinin günlük dosyaları: <b>Araçlar → Günlük Klasörünü Aç</b> ile açılan klasördeki o güne ait <code>.log</code> dosyası.</li></ul>
+<p>Eklenti sürümü: Dosya → Seçenekler → Eklentiler → COM Eklentileri listesinde &quot;Görev Eklentisi&quot; satırında görünür.</p>
+<h2 id="hakkında">Hakkında</h2>
+<p>Görev Eklentisi, <b>NCU</b> tarafından geliştirilmiştir. Sürüm bilgisi Görevler penceresi → Yardım → Hakkında bölümünde görünür.</p>
+  </main>
+</div>
+<footer>Görev Eklentisi 0.1.42 · NCU</footer>
+</body>
+</html>
