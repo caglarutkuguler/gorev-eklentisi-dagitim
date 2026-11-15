@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Görev Eklentisi — Tanıtım: indirme, kurulum ve özellikler</title>
+<meta name="description" content="Görev Eklentisi nasıl indirilir, nasıl kurulur ve neler yapar: ekran görüntüleriyle adım adım.">
+<link rel="icon" href="eklenti/simgeler/simge-32.png">
+<link rel="stylesheet" href="indir.css?v=0.1.47">
+</head>
+<body class="belge">
+<header class="ust">
+  <a href="./"><img src="eklenti/simgeler/simge-64.png" alt="Görev Eklentisi" width="40" height="40"></a>
+  <nav class="gezinti">
+    <a href="./">İndir</a>
+    <a href="tanitim.html" aria-current="page">Tanıtım</a>
+    <a href="kilavuz.html">Kullanım kılavuzu</a>
+    <a href="web-kurulum.html">Mac, web ve yeni Outlook kurulumu</a>
+    <a href="eklenti/destek.html">Destek</a>
+  </nav>
+</header>
+<div class="belge-duzen">
+  <aside class="icindekiler"><b>Bu sayfada</b>
+    <a href="#nedir">Eklenti ne yapar?</a>
+    <a href="#indirme">İndirme</a>
+    <a href="#kurulum">Kurulum (Windows)</a>
+    <a href="#uyari">Kurulum uyarısı ve nedeni</a>
+    <a href="#serit">Outlook'taki Görev grubu</a>
+    <a href="#yeni-gorev">Görev gönderme</a>
+    <a href="#gelen">Gelen görevde yapılacaklar</a>
+    <a href="#liste">Görevler penceresi: liste ve ayrıntı</a>
+    <a href="#kanban">Kanban</a>
+    <a href="#gantt">Gantt</a>
+    <a href="#diger">Diğer özellikler</a>
+    <a href="#guncelleme">Güncelleme ve kaldırma</a>
+  </aside>
+  <main>
+    <h1>Görev Eklentisi: indirme, kurulum ve özellikler</h1>
+    <p>Bu sayfa eklentinin nasıl indirilip kurulduğunu ve temel özelliklerini ekran görüntüleriyle anlatır. Görüntülerdeki kişi, adres ve görevler örnektir. Ayrıntılı anlatım için <a href="kilavuz.html">kullanım kılavuzuna</a> bakılır.</p>
+
+    <h2 id="nedir">Eklenti ne yapar?</h2>
+    <p>Görev Eklentisi, Outlook'tan e-posta gönderir gibi görev vermeyi ve verilen ya da alınan görevleri tek pencereden izlemeyi sağlar. Görevler e-posta ile taşınır; ayrı bir sunucu ya da hesap gerekmez.</p>
+    <ul>
+      <li><b>Görev veren</b> görevi açar, gelişmeleri izler ve tamamlanan görevi kapatır.</li>
+      <li><b>Sorumlu</b> görevi kabul eder (ya da gerekçeyle reddeder), yaptıklarını iş kaydı olarak girer ve görevi tamamlar.</li>
+      <li><b>Bilgi</b> olarak eklenenler görevi ve gelişmeleri görür, işlem yapmaz.</li>
+    </ul>
+    <p>Her işlem karşı tarafa kendiliğinden bir güncelleme e-postası gönderir; görev iki tarafta da aynı durumda görünür.</p>
+
+    <h2 id="indirme">İndirme</h2>
+    <p><a href="./">İndirme sayfası</a> kullanılan bilgisayara uygun seçeneği işaretler. Üç seçenek vardır:</p>
+    <div class="tablo-sar">
+    <table>
+      <thead><tr><th>Kullanılan Outlook</th><th>İndirilecek</th><th>Desteklenen hesaplar</th></tr></thead>
+      <tbody>
+        <tr><td>Windows'ta klasik Outlook (üst menüde <b>Dosya</b> sekmesi vardır)</td><td><a href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi-Kurulum.exe">GorevEklentisi-Kurulum.exe</a></td><td>Tümü: Exchange, Microsoft 365, IMAP, POP, Gmail</td></tr>
+        <tr><td>Mac için Outlook, Windows'ta yeni Outlook, Outlook web</td><td><a href="./#k-mac">Eklenti dosyası (manifest)</a></td><td>Microsoft 365 ve Outlook.com</td></tr>
+        <tr><td>Outlook kurulu değil (Linux, ChromeOS)</td><td><a href="eklenti/">Tarayıcı sürümü</a> (kurulum gerekmez)</td><td>Microsoft 365 ve Outlook.com</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="not">Farklı sürümleri kullananlar birbirine görev verebilir. Görev alan kişide eklenti yoksa görev normal bir e-posta olarak okunur.</p>
+
+    <h2 id="kurulum">Kurulum (Windows)</h2>
+    <ol>
+      <li>İndirilen <code>GorevEklentisi-Kurulum.exe</code> çift tıklanır.</li>
+      <li>"Windows kişisel bilgisayarınızı korudu" uyarısı çıkarsa <b>Ek bilgi → Yine de çalıştır</b> (<a href="#uyari">nedeni aşağıda</a>), yönetici onayında <b>Evet</b> seçilir.</li>
+      <li>Kurulum, gereken bileşenleri (.NET Framework 4.8, Office çalışma zamanı, WebView2) eksikse kendisi kurar. Outlook açıksa kapatılır; kaydedilmemiş taslaklar önce kaydedilmelidir.</li>
+      <li><b>Kapat</b> denince Outlook yeniden açılır ve <b>Giriş</b> sekmesinde <b>Görev</b> grubu görünür.</li>
+    </ol>
+    <p>Mac, yeni Outlook ve Outlook web için adımlar <a href="web-kurulum.html">ayrı kurulum sayfasındadır</a>.</p>
+
+    <h3 id="uyari">Kurulumda çıkan "Windows kişisel bilgisayarınızı korudu" uyarısı</h3>
+    <p>Kurulum dosyası ilk çalıştırıldığında Windows aşağıdaki mavi pencereyi gösterebilir. Bu bir virüs ya da hata bildirimi değildir; kurulum dosyasında bir sorun olduğu anlamına gelmez.</p>
+    <div class="ikili">
+      <figure>
+        <img src="gorsel/smartscreen-1.png" alt="Microsoft Defender SmartScreen uyarısı: Windows kişisel bilgisayarınızı korudu; Ek bilgi bağlantısı" width="534" height="500" loading="lazy">
+        <figcaption>1. Önce <b>Ek bilgi</b> bağlantısına tıklanır.</figcaption>
+      </figure>
+      <figure>
+        <img src="gorsel/smartscreen-2.png" alt="SmartScreen uyarısının açılmış hâli: uygulama GorevEklentisi-Kurulum.exe, Yine de çalıştır düğmesi" width="534" height="500" loading="lazy">
+        <figcaption>2. Uygulama adının <code>GorevEklentisi-Kurulum.exe</code> olduğu görülür ve <b>Yine de çalıştır</b> seçilir.</figcaption>
+      </figure>
+    </div>
+    <p><b>Neden çıkar?</b> Microsoft Defender SmartScreen, internetten indirilen ve henüz yeterince tanınmamış programları ilk çalıştırmada durdurur. Bir programın "tanınması" için ya yaygın olarak indirilmiş olması ya da Microsoft'un tanıdığı bir yayımcı sertifikasıyla imzalanmış olması gerekir. Görev Eklentisi yeni yayınlanan bir yazılımdır ve kurulum dosyası NCU'nun kendi sertifikasıyla imzalanmıştır; bu nedenle Windows dosyayı henüz tanımaz. Yayımcı satırında bilgisayara göre "NCU" ya da "Bilinmeyen yayımcı" yazabilir.</p>
+    <p><b>Ne yapılır?</b> Dosya bu sitedeki indirme sayfasından alındıysa <b>Ek bilgi → Yine de çalıştır</b> ile devam edilir. Uyarı, indirilen her yeni kurulum dosyasının ilk çalıştırılışında çıkabilir. Kurum bilgisayarlarında bu seçenek kapatılmışsa kurulum bilgi işlem birimi tarafından MSI paketiyle yapılır.</p>
+    <p><b>Kalıcı çözüm:</b> Eklentinin Microsoft'un eklenti mağazasında yayınlanması için hazırlıklar sürmektedir. Mağazada yayınlandığında eklenti Outlook'un içinden, dosya indirilmeden kurulabilecek ve bu uyarı görülmeyecektir.</p>
+
+    <h2 id="serit">Outlook'taki Görev grubu</h2>
+    <figure>
+      <img src="gorsel/serit.png" alt="Outlook Giriş sekmesindeki Görev grubu ve Araçlar menüsü" width="604" height="240" loading="lazy">
+      <figcaption>Giriş sekmesinde Görev grubu ve Araçlar menüsü.</figcaption>
+    </figure>
+    <ul>
+      <li><b>Yeni Görev</b> görev gönderme formunu açar.</li>
+      <li><b>Görevler</b> tüm görevlerin izlendiği pencereyi açar.</li>
+      <li><b>Kabul, İş Kaydı, Tamamla, Görevi Aç</b> seçili görev e-postasına göre etkinleşir.</li>
+      <li><b>Araçlar</b> menüsünde hesap seçimi, Gelen Kutusu taraması, bekleyen postaların gönderilmesi, güncelleme denetimi ve eklentiyi kaldırma bulunur.</li>
+    </ul>
+
+    <h2 id="yeni-gorev">Görev gönderme</h2>
+    <figure>
+      <img src="gorsel/yeni-gorev.png" alt="Yeni Görev formu: gönderen hesap, sorumlular, başlık, tarihler, öncelik, proje, açıklama ve alt adımlar" width="765" height="694" loading="lazy">
+      <figcaption>Yeni Görev formu.</figcaption>
+    </figure>
+    <ul>
+      <li><b>Sorumlu(lar)</b> e-posta adresi ya da adres defterindeki adla yazılır; birden çok kişi noktalı virgülle ayrılır.</li>
+      <li>Birden çok sorumlu varsa görev <b>her biri için ayrı</b> ya da <b>ortak tek görev</b> olarak açılır.</li>
+      <li><b>Efor takibi</b> açılırsa iş kayıtlarında harcanan saat zorunlu olur ve tahmini saat girilir.</li>
+      <li><b>Alt adımlar</b> sorumlunun tek tek işaretleyeceği kontrol maddeleridir.</li>
+      <li>Birden çok hesapta görev alanı açıksa <b>Gönderen hesap</b> listesinden görevin hangi adresten gideceği seçilir.</li>
+    </ul>
+
+    <h2 id="gelen">Gelen görevde yapılacaklar</h2>
+    <p>Gelen görev e-postası Gelen Kutusu'nun altındaki <b>Görevler</b> klasörüne taşınır ve bir bildirim çıkar. Görev, e-postadaki düğmelerle, şeritteki Görev grubuyla ya da Görevler penceresinden işlenir:</p>
+    <ol>
+      <li><b>Kabul</b> ya da gerekçe yazılarak <b>Reddet</b>.</li>
+      <li>Çalışıldıkça <b>İş Kaydı</b>: not, ilerleme yüzdesi ve (efor takibi açıksa) harcanan saat.</li>
+      <li>Alt adımlar bittikçe işaretlenir; gerekirse <b>Beklet</b>, <b>Termin iste</b> ya da <b>Yorum</b> kullanılır.</li>
+      <li>İş bitince <b>Tamamla</b>. Görev veren görevi <b>Kapat</b> ile sonlandırır ya da geri açar.</li>
+    </ol>
+
+    <h2 id="liste">Görevler penceresi: liste ve ayrıntı</h2>
+    <figure>
+      <img src="gorsel/liste.png" alt="Görevler penceresi liste görünümü ve seçili görevin ayrıntı paneli" width="1366" height="768" loading="lazy">
+      <figcaption>Liste görünümü; sağda seçili görevin ayrıntısı, alt adımları ve iş kayıtları.</figcaption>
+    </figure>
+    <ul>
+      <li>Üstteki süzgeçlerle görevler role (verdiklerim, üzerimdekiler, izlediklerim), duruma, projeye ve kişiye göre daraltılır; <b>Gecikmiş</b> kutusu yalnızca termini geçenleri gösterir.</li>
+      <li>Sütun başlığına tıklanınca liste o sütuna göre sıralanır.</li>
+      <li>Satıra tıklanınca ayrıntı paneli açılır; yapılabilecek işlemler panelin üstündeki düğmelerdir.</li>
+      <li><b>CSV</b> düğmesi görünen listeyi Excel'de açılabilecek dosya olarak dışa aktarır.</li>
+    </ul>
+
+    <h2 id="kanban">Kanban</h2>
+    <figure>
+      <img src="gorsel/kanban.png" alt="Görevlerin durumlarına göre sütunlara dizildiği kanban görünümü" width="1366" height="768" loading="lazy">
+      <figcaption>Kanban görünümü: görevler durumlarına göre sütunlarda.</figcaption>
+    </figure>
+    <p>Kart başka bir sütuna sürüklenince ilgili işlem (kabul, bekletme, tamamlama gibi) başlatılır. Yalnızca o görevde izin verilen geçişler yapılabilir.</p>
+
+    <h2 id="gantt">Gantt</h2>
+    <figure>
+      <img src="gorsel/gantt.png" alt="Görevlerin başlangıç ve termin tarihlerine göre zaman çizelgesi" width="1366" height="392" loading="lazy">
+      <figcaption>Gantt görünümü: başlangıç ve termin tarihlerine göre zaman çizelgesi.</figcaption>
+    </figure>
+    <p>Ölçek gün, hafta ya da ay olarak seçilir; görevler projeye ya da sorumluya göre gruplanabilir. Kesikli kırmızı çizgi bugünü gösterir.</p>
+
+    <h2 id="diger">Diğer özellikler</h2>
+    <ul>
+      <li><b>Yük görünümü:</b> kişi başına açık, gecikmiş ve tamamlanan görev sayıları ile tahmini ve harcanan saatler.</li>
+      <li><b>Birden çok e-posta hesabı:</b> her hesabın görevleri ayrı tutulur; hangi hesaplarda görev alanı açılacağı <b>Araçlar → Görev Hesapları</b> ile seçilir.</li>
+      <li><b>Hatırlatma ve bildirim:</b> yeni görev, güncelleme ve yaklaşan terminler için bildirim çıkar; bildirim alanındaki simge Görevler penceresini açar.</li>
+      <li><b>Outlook Görevleri ile eşleme:</b> sorumlu olunan görevler Outlook'un kendi Görevler listesinde ve Yapılacaklar çubuğunda da görünür.</li>
+      <li><b>Ekler:</b> görev gönderilirken dosya eklenebilir.</li>
+    </ul>
+
+    <h2 id="guncelleme">Güncelleme ve kaldırma</h2>
+    <p>Eklenti yeni sürümü günde bir kez denetler; yayınlandığında Görev grubunda <b>Yeni sürüm</b> düğmesi belirir ve kurulum dosyasını indirir. İndirilen dosya çalıştırılınca eski sürümün üzerine kurulur; görevler ve tercihler korunur.</p>
+    <p>Kaldırmak için <b>Araçlar → Eklentiyi Kaldır</b> ya da Windows'un <b>Ayarlar → Uygulamalar</b> listesi kullanılır. Görev e-postaları posta kutusunda kalır.</p>
+
+    <p class="not">Güncel sürüm 0.1.47 · 15.11.2026 23:25 (Türkiye saati)</p>
+  </main>
+</div>
+<footer>Görev Eklentisi 0.1.47 · NCU</footer>
+</body>
+</html>
