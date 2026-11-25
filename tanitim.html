@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="tr" data-baslik-en="NCU Task Tracker — Overview: download, setup and features">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Görev Eklentisi — Tanıtım: indirme, kurulum ve özellikler</title>
+<meta name="description" content="Görev Eklentisi nasıl indirilir, nasıl kurulur ve neler yapar: ekran görüntüleriyle adım adım. · How to download, install and use NCU Task Tracker: step by step with screenshots.">
+<link rel="icon" href="eklenti/simgeler/simge-32.png">
+<link rel="stylesheet" href="indir.css?v=0.1.54">
+<script src="dil.js?v=0.1.54"></script>
+</head>
+<body class="belge">
+<header class="ust">
+  <a href="./"><img src="eklenti/simgeler/simge-64.png" alt="Görev Eklentisi · NCU Task Tracker" width="40" height="40"></a>
+  <nav class="gezinti">
+    <a href="./"><span data-dil="tr">İndir</span><span data-dil="en">Download</span></a>
+    <a href="tanitim.html" aria-current="page"><span data-dil="tr">Tanıtım</span><span data-dil="en">Overview</span></a>
+    <a href="kilavuz.html"><span data-dil="tr">Kullanım kılavuzu</span><span data-dil="en">User guide</span></a>
+    <a href="web-kurulum.html"><span data-dil="tr">Mac, web ve yeni Outlook kurulumu</span><span data-dil="en">Mac, web and new Outlook setup</span></a>
+    <a href="eklenti/destek.html"><span data-dil="tr">Destek</span><span data-dil="en">Support</span></a>
+  </nav>
+  <div class="dil-sec" role="group" aria-label="Dil / Language"><button type="button" data-dil-sec="tr" lang="tr" title="Türkçe">TR</button><button type="button" data-dil-sec="en" lang="en" title="English">EN</button></div>
+</header>
+<div class="belge-duzen">
+  <aside class="icindekiler"><b><span data-dil="tr">Bu sayfada</span><span data-dil="en">On this page</span></b>
+    <a href="#nedir"><span data-dil="tr">Eklenti ne yapar?</span><span data-dil="en">What does the add-in do?</span></a>
+    <a href="#indirme"><span data-dil="tr">İndirme</span><span data-dil="en">Download</span></a>
+    <a href="#kurulum"><span data-dil="tr">Kurulum (Windows)</span><span data-dil="en">Setup (Windows)</span></a>
+    <a href="#uyari"><span data-dil="tr">Kurulum uyarısı ve nedeni</span><span data-dil="en">The setup warning and why it appears</span></a>
+    <a href="#serit"><span data-dil="tr">Outlook'taki Görev grubu</span><span data-dil="en">The Task group in Outlook</span></a>
+    <a href="#yeni-gorev"><span data-dil="tr">Görev gönderme</span><span data-dil="en">Sending a task</span></a>
+    <a href="#gelen"><span data-dil="tr">Gelen görevde yapılacaklar</span><span data-dil="en">Handling a received task</span></a>
+    <a href="#liste"><span data-dil="tr">Görevler penceresi: liste ve ayrıntı</span><span data-dil="en">The Tasks window: list and details</span></a>
+    <a href="#kanban">Kanban</a>
+    <a href="#gantt">Gantt</a>
+    <a href="#diger"><span data-dil="tr">Diğer özellikler</span><span data-dil="en">Other features</span></a>
+    <a href="#guncelleme"><span data-dil="tr">Güncelleme ve kaldırma</span><span data-dil="en">Updating and removing</span></a>
+  </aside>
+  <main>
+    <h1 data-dil="tr">Görev Eklentisi: indirme, kurulum ve özellikler</h1>
+    <h1 data-dil="en">NCU Task Tracker: download, setup and features</h1>
+    <p data-dil="tr">Bu sayfa eklentinin nasıl indirilip kurulduğunu ve temel özelliklerini ekran görüntüleriyle anlatır. Görüntülerdeki kişi, adres ve görevler örnektir. Ayrıntılı anlatım için <a href="kilavuz.html">kullanım kılavuzuna</a> bakılır.</p>
+    <p data-dil="en">This page explains with screenshots how the add-in is downloaded and installed, and what its main features are. The people, addresses and tasks in the screenshots are examples. See the <a href="kilavuz.html">user guide</a> for details. The Windows desktop edition shown here has a Turkish interface; the Mac, web and new Outlook edition has an English and Turkish interface.</p>
+
+    <div class="tanitim-videolar">
+      <figure class="tanitim-video" data-video="tr">
+        <video controls preload="metadata" playsinline poster="gorsel/video/tanitim-tr.jpg">
+          <source src="gorsel/video/tanitim-tr.mp4" type="video/mp4">
+        </video>
+        <figcaption><span data-dil="tr">Türkçe tanıtım videosu (58 sn)</span><span data-dil="en">Turkish promo video (58 s)</span> · <a href="https://www.youtube.com/watch?v=gkONvFQwdQk">YouTube</a></figcaption>
+      </figure>
+      <figure class="tanitim-video" data-video="en">
+        <video controls preload="metadata" playsinline poster="gorsel/video/tanitim-en.jpg">
+          <source src="gorsel/video/tanitim-en.mp4" type="video/mp4">
+        </video>
+        <figcaption><span data-dil="tr">İngilizce tanıtım videosu (58 sn)</span><span data-dil="en">English promo video (58 s)</span> · <a href="https://www.youtube.com/watch?v=88AWpGK2bZY">YouTube</a></figcaption>
+      </figure>
+    </div>
+
+    <h2 id="nedir"><span data-dil="tr">Eklenti ne yapar?</span><span data-dil="en">What does the add-in do?</span></h2>
+    <p data-dil="tr">Görev Eklentisi, Outlook'tan e-posta gönderir gibi görev vermeyi ve verilen ya da alınan görevleri tek pencereden izlemeyi sağlar. Görevler e-posta ile taşınır; ayrı bir sunucu ya da hesap gerekmez.</p>
+    <p data-dil="en">NCU Task Tracker makes it possible to assign tasks from Outlook as easily as sending an e-mail, and to follow assigned and received tasks in a single window. Tasks travel by e-mail; no separate server or account is needed.</p>
+    <ul data-dil="tr">
+      <li><b>Görev veren</b> görevi açar, gelişmeleri izler ve tamamlanan görevi kapatır.</li>
+      <li><b>Sorumlu</b> görevi kabul eder (ya da gerekçeyle reddeder), yaptıklarını iş kaydı olarak girer ve görevi tamamlar.</li>
+      <li><b>Bilgi</b> olarak eklenenler görevi ve gelişmeleri görür, işlem yapmaz.</li>
+    </ul>
+    <ul data-dil="en">
+      <li>The <b>assigner</b> creates the task, follows its progress and closes it once completed.</li>
+      <li>The <b>assignee</b> accepts the task (or declines it with a reason), enters what was done as work log entries and completes the task.</li>
+      <li>People added as <b>CC</b> can see the task and its progress but take no action.</li>
+    </ul>
+    <p data-dil="tr">Her işlem karşı tarafa kendiliğinden bir güncelleme e-postası gönderir; görev iki tarafta da aynı durumda görünür.</p>
+    <p data-dil="en">Every action automatically sends an update e-mail to the other side, so the task appears in the same state for both.</p>
+
+    <h2 id="indirme"><span data-dil="tr">İndirme</span><span data-dil="en">Download</span></h2>
+    <p data-dil="tr"><a href="./">İndirme sayfası</a> kullanılan bilgisayara uygun seçeneği işaretler. Üç seçenek vardır:</p>
+    <p data-dil="en">The <a href="./">download page</a> highlights the option that suits the computer in use. There are three options:</p>
+    <div class="tablo-sar" data-dil="tr">
+    <table>
+      <thead><tr><th>Kullanılan Outlook</th><th>İndirilecek</th><th>Desteklenen hesaplar</th></tr></thead>
+      <tbody>
+        <tr><td>Windows'ta klasik Outlook (üst menüde <b>Dosya</b> sekmesi vardır)</td><td><a href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi-Kurulum.exe">GorevEklentisi-Kurulum.exe</a></td><td>Tümü: Exchange, Microsoft 365, IMAP, POP, Gmail</td></tr>
+        <tr><td>Mac için Outlook, Windows'ta yeni Outlook, Outlook web</td><td><a href="./#k-mac">Eklenti dosyası (manifest)</a></td><td>Microsoft 365 ve Outlook.com</td></tr>
+        <tr><td>Outlook kurulu değil (Linux, ChromeOS)</td><td><a href="eklenti/">Tarayıcı sürümü</a> (kurulum gerekmez)</td><td>Microsoft 365 ve Outlook.com</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tablo-sar" data-dil="en">
+    <table>
+      <thead><tr><th>Outlook in use</th><th>Download</th><th>Supported accounts</th></tr></thead>
+      <tbody>
+        <tr><td>Classic Outlook on Windows (there is a <b>File</b> tab in the top menu)</td><td><a href="https://github.com/caglarutkuguler/gorev-eklentisi-dagitim/releases/latest/download/GorevEklentisi-Kurulum.exe">GorevEklentisi-Kurulum.exe</a></td><td>All: Exchange, Microsoft 365, IMAP, POP, Gmail</td></tr>
+        <tr><td>Outlook for Mac, new Outlook for Windows, Outlook on the web</td><td><a href="./#k-mac">Add-in file (manifest)</a></td><td>Microsoft 365 and Outlook.com</td></tr>
+        <tr><td>No Outlook installed (Linux, ChromeOS)</td><td><a href="eklenti/">Browser edition</a> (no installation needed)</td><td>Microsoft 365 and Outlook.com</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="not" data-dil="tr">Farklı sürümleri kullananlar birbirine görev verebilir. Görev alan kişide eklenti yoksa görev normal bir e-posta olarak okunur.</p>
+    <p class="not" data-dil="en">People using different editions can assign tasks to each other. If the recipient does not have the add-in, the task is read as a normal e-mail.</p>
+
+    <h2 id="kurulum"><span data-dil="tr">Kurulum (Windows)</span><span data-dil="en">Setup (Windows)</span></h2>
+    <ol data-dil="tr">
+      <li>İndirilen <code>GorevEklentisi-Kurulum.exe</code> çift tıklanır.</li>
+      <li>"Windows kişisel bilgisayarınızı korudu" uyarısı çıkarsa <b>Ek bilgi → Yine de çalıştır</b> (<a href="#uyari">nedeni aşağıda</a>), yönetici onayında <b>Evet</b> seçilir.</li>
+      <li>Kurulum, gereken bileşenleri (.NET Framework 4.8, Office çalışma zamanı, WebView2) eksikse kendisi kurar. Outlook açıksa kapatılır; kaydedilmemiş taslaklar önce kaydedilmelidir.</li>
+      <li><b>Kapat</b> denince Outlook yeniden açılır ve <b>Giriş</b> sekmesinde <b>Görev</b> grubu görünür.</li>
+    </ol>
+    <ol data-dil="en">
+      <li>Double-click the downloaded <code>GorevEklentisi-Kurulum.exe</code>.</li>
+      <li>If the "Windows protected your PC" warning appears, select <b>More info → Run anyway</b> (<a href="#uyari">the reason is explained below</a>), and <b>Yes</b> at the administrator prompt.</li>
+      <li>Setup installs the required components (.NET Framework 4.8, Office runtime, WebView2) if they are missing. If Outlook is open, it is closed; unsaved drafts should be saved first.</li>
+      <li>When <b>Kapat</b> (Close) is selected, Outlook reopens and the <b>Görev</b> (Task) group appears on the <b>Home</b> tab.</li>
+    </ol>
+    <p data-dil="tr">Mac, yeni Outlook ve Outlook web için adımlar <a href="web-kurulum.html">ayrı kurulum sayfasındadır</a>.</p>
+    <p data-dil="en">The steps for Mac, new Outlook and Outlook on the web are on a <a href="web-kurulum.html">separate setup page</a>.</p>
+
+    <h3 id="uyari"><span data-dil="tr">Kurulumda çıkan "Windows kişisel bilgisayarınızı korudu" uyarısı</span><span data-dil="en">The "Windows protected your PC" warning during setup</span></h3>
+    <p data-dil="tr">Kurulum dosyası ilk çalıştırıldığında Windows aşağıdaki mavi pencereyi gösterebilir. Bu bir virüs ya da hata bildirimi değildir; kurulum dosyasında bir sorun olduğu anlamına gelmez.</p>
+    <p data-dil="en">When the installer is run for the first time, Windows may show the blue window below. It is not a virus or error notice, and it does not mean there is a problem with the installer.</p>
+    <div class="ikili">
+      <figure>
+        <img src="gorsel/smartscreen-1.png" alt="Microsoft Defender SmartScreen warning: Windows protected your PC, with the More info link · Microsoft Defender SmartScreen uyarısı: Windows kişisel bilgisayarınızı korudu; Ek bilgi bağlantısı" width="534" height="500" loading="lazy">
+        <figcaption><span data-dil="tr">1. Önce <b>Ek bilgi</b> bağlantısına tıklanır.</span><span data-dil="en">1. First, the <b>More info</b> link is selected.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="gorsel/smartscreen-2.png" alt="The expanded SmartScreen warning: app GorevEklentisi-Kurulum.exe, Run anyway button · SmartScreen uyarısının açılmış hâli: uygulama GorevEklentisi-Kurulum.exe, Yine de çalıştır düğmesi" width="534" height="500" loading="lazy">
+        <figcaption><span data-dil="tr">2. Uygulama adının <code>GorevEklentisi-Kurulum.exe</code> olduğu görülür ve <b>Yine de çalıştır</b> seçilir.</span><span data-dil="en">2. Check that the app name is <code>GorevEklentisi-Kurulum.exe</code>, then select <b>Run anyway</b>.</span></figcaption>
+      </figure>
+    </div>
+    <p data-dil="tr"><b>Neden çıkar?</b> Microsoft Defender SmartScreen, internetten indirilen ve henüz yeterince tanınmamış programları ilk çalıştırmada durdurur. Bir programın "tanınması" için ya yaygın olarak indirilmiş olması ya da Microsoft'un tanıdığı bir yayımcı sertifikasıyla imzalanmış olması gerekir. Görev Eklentisi yeni yayınlanan bir yazılımdır ve kurulum dosyası NCU'nun kendi sertifikasıyla imzalanmıştır; bu nedenle Windows dosyayı henüz tanımaz. Yayımcı satırında bilgisayara göre "NCU" ya da "Bilinmeyen yayımcı" yazabilir.</p>
+    <p data-dil="en"><b>Why does it appear?</b> Microsoft Defender SmartScreen stops programs that are downloaded from the internet and not yet well known when they are run for the first time. For a program to be "recognized", it must either be widely downloaded or be signed with a publisher certificate that Microsoft recognizes. NCU Task Tracker is newly released software and its installer is signed with NCU's own certificate, so Windows does not recognize the file yet. Depending on the computer, the publisher line may read "NCU" or "Unknown publisher".</p>
+    <p data-dil="tr"><b>Ne yapılır?</b> Dosya bu sitedeki indirme sayfasından alındıysa <b>Ek bilgi → Yine de çalıştır</b> ile devam edilir. Uyarı, indirilen her yeni kurulum dosyasının ilk çalıştırılışında çıkabilir. Kurum bilgisayarlarında bu seçenek kapatılmışsa kurulum bilgi işlem birimi tarafından MSI paketiyle yapılır.</p>
+    <p data-dil="en"><b>What to do?</b> If the file was obtained from the download page on this site, continue with <b>More info → Run anyway</b>. The warning can appear the first time each newly downloaded installer is run. If this option is disabled on organization computers, the IT department installs the add-in with the MSI package.</p>
+    <p data-dil="tr"><b>Kalıcı çözüm:</b> Eklenti Microsoft'un eklenti mağazasına (Microsoft Marketplace) gönderildi; yayınlandığında Outlook'un içinden, dosya indirilmeden kurulabilecek ve bu uyarı görülmeyecek.</p>
+    <p data-dil="en"><b>Permanent solution:</b> The add-in has been submitted to Microsoft Marketplace. Once published, it can be installed from inside Outlook without downloading a file, and this warning will not appear.</p>
+
+    <h2 id="serit"><span data-dil="tr">Outlook'taki Görev grubu</span><span data-dil="en">The Task group in Outlook</span></h2>
+    <figure>
+      <img src="gorsel/serit.png" alt="The Task group and the Tools menu on the Outlook Home tab · Outlook Giriş sekmesindeki Görev grubu ve Araçlar menüsü" width="604" height="240" loading="lazy">
+      <figcaption><span data-dil="tr">Giriş sekmesinde Görev grubu ve Araçlar menüsü.</span><span data-dil="en">The Task group and the Tools menu on the Home tab.</span></figcaption>
+    </figure>
+    <ul data-dil="tr">
+      <li><b>Yeni Görev</b> görev gönderme formunu açar.</li>
+      <li><b>Görevler</b> tüm görevlerin izlendiği pencereyi açar.</li>
+      <li><b>Kabul, İş Kaydı, Tamamla, Görevi Aç</b> seçili görev e-postasına göre etkinleşir.</li>
+      <li><b>Araçlar</b> menüsünde hesap seçimi, Gelen Kutusu taraması, bekleyen postaların gönderilmesi, güncelleme denetimi ve eklentiyi kaldırma bulunur.</li>
+    </ul>
+    <ul data-dil="en">
+      <li><b>Yeni Görev</b> (New Task) opens the form for sending a task.</li>
+      <li><b>Görevler</b> (Tasks) opens the window where all tasks are followed.</li>
+      <li><b>Kabul</b> (Accept), <b>İş Kaydı</b> (Work log), <b>Tamamla</b> (Complete) and <b>Görevi Aç</b> (Open task) become active depending on the selected task e-mail.</li>
+      <li>The <b>Araçlar</b> (Tools) menu contains account selection, scanning of the Inbox, sending of pending mail, the update check and removal of the add-in.</li>
+    </ul>
+
+    <h2 id="yeni-gorev"><span data-dil="tr">Görev gönderme</span><span data-dil="en">Sending a task</span></h2>
+    <figure>
+      <img src="gorsel/yeni-gorev.png" alt="The New Task form: sending account, assignees, title, dates, priority, project, description and subtasks · Yeni Görev formu: gönderen hesap, sorumlular, başlık, tarihler, öncelik, proje, açıklama ve alt adımlar" width="765" height="694" loading="lazy">
+      <figcaption><span data-dil="tr">Yeni Görev formu.</span><span data-dil="en">The <b>Yeni Görev</b> form.</span></figcaption>
+    </figure>
+    <ul data-dil="tr">
+      <li><b>Sorumlu(lar)</b> e-posta adresi ya da adres defterindeki adla yazılır; birden çok kişi noktalı virgülle ayrılır.</li>
+      <li>Birden çok sorumlu varsa görev <b>her biri için ayrı</b> ya da <b>ortak tek görev</b> olarak açılır.</li>
+      <li><b>Efor takibi</b> açılırsa iş kayıtlarında harcanan saat zorunlu olur ve tahmini saat girilir.</li>
+      <li><b>Alt adımlar</b> sorumlunun tek tek işaretleyeceği kontrol maddeleridir.</li>
+      <li>Birden çok hesapta görev alanı açıksa <b>Gönderen hesap</b> listesinden görevin hangi adresten gideceği seçilir.</li>
+    </ul>
+    <ul data-dil="en">
+      <li><b>Sorumlu(lar)</b> (Assignee(s)) are entered as an e-mail address or by name from the address book; several people are separated with a semicolon.</li>
+      <li>If there are several assignees, the task is created <b>separately for each</b> or as <b>one shared task</b>.</li>
+      <li>If <b>Efor takibi</b> (Effort tracking) is turned on, the hours spent become mandatory in work log entries and an estimated number of hours is entered.</li>
+      <li><b>Alt adımlar</b> (Subtasks) are checklist items that the assignee ticks off one by one.</li>
+      <li>If the task area is turned on for several accounts, the address the task is sent from is chosen in the <b>Gönderen hesap</b> (Sending account) list.</li>
+    </ul>
+
+    <h2 id="gelen"><span data-dil="tr">Gelen görevde yapılacaklar</span><span data-dil="en">Handling a received task</span></h2>
+    <p data-dil="tr">Gelen görev e-postası Gelen Kutusu'nun altındaki <b>Görevler</b> klasörüne taşınır ve bir bildirim çıkar. Görev, e-postadaki düğmelerle, şeritteki Görev grubuyla ya da Görevler penceresinden işlenir:</p>
+    <p data-dil="en">The incoming task e-mail is moved to the <b>Görevler</b> folder under the Inbox and a notification appears. The task is handled with the buttons in the e-mail, with the Task group on the ribbon, or from the Tasks window:</p>
+    <ol data-dil="tr">
+      <li><b>Kabul</b> ya da gerekçe yazılarak <b>Reddet</b>.</li>
+      <li>Çalışıldıkça <b>İş Kaydı</b>: not, ilerleme yüzdesi ve (efor takibi açıksa) harcanan saat.</li>
+      <li>Alt adımlar bittikçe işaretlenir; gerekirse <b>Beklet</b>, <b>Termin iste</b> ya da <b>Yorum</b> kullanılır.</li>
+      <li>İş bitince <b>Tamamla</b>. Görev veren görevi <b>Kapat</b> ile sonlandırır ya da geri açar.</li>
+    </ol>
+    <ol data-dil="en">
+      <li><b>Kabul</b> (Accept), or <b>Reddet</b> (Decline) with a reason.</li>
+      <li>As work progresses, <b>İş Kaydı</b> (Work log): a note, a progress percentage and (if effort tracking is on) the hours spent.</li>
+      <li>Subtasks are ticked off as they are finished; if needed, <b>Beklet</b> (Put on hold), <b>Termin iste</b> (Request due date) or <b>Yorum</b> (Comment) is used.</li>
+      <li>When the work is done, <b>Tamamla</b> (Complete). The assigner ends the task with <b>Kapat</b> (Close) or reopens it.</li>
+    </ol>
+
+    <h2 id="liste"><span data-dil="tr">Görevler penceresi: liste ve ayrıntı</span><span data-dil="en">The Tasks window: list and details</span></h2>
+    <figure>
+      <img src="gorsel/liste.png" alt="The Tasks window in list view with the details panel of the selected task · Görevler penceresi liste görünümü ve seçili görevin ayrıntı paneli" width="1366" height="768" loading="lazy">
+      <figcaption><span data-dil="tr">Liste görünümü; sağda seçili görevin ayrıntısı, alt adımları ve iş kayıtları.</span><span data-dil="en">List view; on the right, the details of the selected task with its subtasks and work log entries.</span></figcaption>
+    </figure>
+    <ul data-dil="tr">
+      <li>Üstteki süzgeçlerle görevler role (verdiklerim, üzerimdekiler, izlediklerim), duruma, projeye ve kişiye göre daraltılır; <b>Gecikmiş</b> kutusu yalnızca termini geçenleri gösterir.</li>
+      <li>Sütun başlığına tıklanınca liste o sütuna göre sıralanır.</li>
+      <li>Satıra tıklanınca ayrıntı paneli açılır; yapılabilecek işlemler panelin üstündeki düğmelerdir.</li>
+      <li><b>CSV</b> düğmesi görünen listeyi Excel'de açılabilecek dosya olarak dışa aktarır.</li>
+    </ul>
+    <ul data-dil="en">
+      <li>With the filters at the top, tasks are narrowed down by role (assigned by me, assigned to me, followed by me), status, project and person; the <b>Gecikmiş</b> (Overdue) box shows only tasks past their due date.</li>
+      <li>Selecting a column heading sorts the list by that column.</li>
+      <li>Selecting a row opens the details panel; the actions that can be taken are the buttons at the top of the panel.</li>
+      <li>The <b>CSV</b> button exports the visible list as a file that can be opened in Excel.</li>
+    </ul>
+
+    <h2 id="kanban">Kanban</h2>
+    <figure>
+      <img src="gorsel/kanban.png" alt="Kanban view with tasks arranged in columns by status · Görevlerin durumlarına göre sütunlara dizildiği kanban görünümü" width="1366" height="768" loading="lazy">
+      <figcaption><span data-dil="tr">Kanban görünümü: görevler durumlarına göre sütunlarda.</span><span data-dil="en">Kanban view: tasks in columns by status.</span></figcaption>
+    </figure>
+    <p data-dil="tr">Kart başka bir sütuna sürüklenince ilgili işlem (kabul, bekletme, tamamlama gibi) başlatılır. Yalnızca o görevde izin verilen geçişler yapılabilir.</p>
+    <p data-dil="en">When a card is dragged to another column, the corresponding action (such as accepting, putting on hold or completing) is started. Only the transitions allowed for that task can be made.</p>
+
+    <h2 id="gantt">Gantt</h2>
+    <figure>
+      <img src="gorsel/gantt.png" alt="Timeline of tasks by start and due dates · Görevlerin başlangıç ve termin tarihlerine göre zaman çizelgesi" width="1366" height="392" loading="lazy">
+      <figcaption><span data-dil="tr">Gantt görünümü: başlangıç ve termin tarihlerine göre zaman çizelgesi.</span><span data-dil="en">Gantt view: a timeline by start and due dates.</span></figcaption>
+    </figure>
+    <p data-dil="tr">Ölçek gün, hafta ya da ay olarak seçilir; görevler projeye ya da sorumluya göre gruplanabilir. Kesikli kırmızı çizgi bugünü gösterir.</p>
+    <p data-dil="en">The scale is chosen as day, week or month; tasks can be grouped by project or by assignee. The dashed red line marks today.</p>
+
+    <h2 id="diger"><span data-dil="tr">Diğer özellikler</span><span data-dil="en">Other features</span></h2>
+    <ul data-dil="tr">
+      <li><b>Yük görünümü:</b> kişi başına açık, gecikmiş ve tamamlanan görev sayıları ile tahmini ve harcanan saatler.</li>
+      <li><b>Birden çok e-posta hesabı:</b> her hesabın görevleri ayrı tutulur; hangi hesaplarda görev alanı açılacağı <b>Araçlar → Görev Hesapları</b> ile seçilir.</li>
+      <li><b>Hatırlatma ve bildirim:</b> yeni görev, güncelleme ve yaklaşan terminler için bildirim çıkar; bildirim alanındaki simge Görevler penceresini açar.</li>
+      <li><b>Outlook Görevleri ile eşleme:</b> sorumlu olunan görevler Outlook'un kendi Görevler listesinde ve Yapılacaklar çubuğunda da görünür.</li>
+      <li><b>Ekler:</b> görev gönderilirken dosya eklenebilir.</li>
+    </ul>
+    <ul data-dil="en">
+      <li><b>Workload view:</b> the number of open, overdue and completed tasks per person, with estimated and spent hours.</li>
+      <li><b>Several e-mail accounts:</b> the tasks of each account are kept separate; the accounts for which the task area is turned on are chosen with <b>Araçlar → Görev Hesapları</b> (Tools → Task Accounts).</li>
+      <li><b>Reminders and notifications:</b> notifications appear for new tasks, updates and approaching due dates; the icon in the notification area opens the Tasks window.</li>
+      <li><b>Sync with Outlook Tasks:</b> tasks assigned to the user also appear in Outlook's own Tasks list and in the To-Do bar.</li>
+      <li><b>Attachments:</b> files can be attached when a task is sent.</li>
+    </ul>
+
+    <h2 id="guncelleme"><span data-dil="tr">Güncelleme ve kaldırma</span><span data-dil="en">Updating and removing</span></h2>
+    <p data-dil="tr">Eklenti yeni sürümü günde bir kez denetler; yayınlandığında Görev grubunda <b>Yeni sürüm</b> düğmesi belirir ve kurulum dosyasını indirir. İndirilen dosya çalıştırılınca eski sürümün üzerine kurulur; görevler ve tercihler korunur.</p>
+    <p data-dil="en">The add-in checks for a new version once a day; when one is released, a <b>Yeni sürüm</b> (New version) button appears in the Task group and downloads the installer. When the downloaded file is run, it installs over the old version; tasks and preferences are kept.</p>
+    <p data-dil="tr">Kaldırmak için <b>Araçlar → Eklentiyi Kaldır</b> ya da Windows'un <b>Ayarlar → Uygulamalar</b> listesi kullanılır. Görev e-postaları posta kutusunda kalır.</p>
+    <p data-dil="en">To remove it, use <b>Araçlar → Eklentiyi Kaldır</b> (Tools → Remove add-in) or the Windows <b>Settings → Apps</b> list. Task e-mails stay in the mailbox.</p>
+
+    <p class="not" data-dil="tr">Güncel sürüm 0.1.54 · 25.11.2026 22:21 (Türkiye saati)</p>
+    <p class="not" data-dil="en">Current version 0.1.54 · 25.11.2026 22:21 (Turkey time)</p>
+  </main>
+</div>
+<footer><span data-dil="tr">Görev Eklentisi</span><span data-dil="en">NCU Task Tracker</span> 0.1.54 · NCU</footer>
+</body>
+</html>
